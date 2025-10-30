@@ -25,15 +25,9 @@ export default function Center() {
       </section>
 
       <footer className="nav center-footer" style={{ marginTop: 24 }}>
-        <button
-          className="btn"
-          onClick={() =>
-            logout({ logoutParams: { returnTo: window.location.origin } })
-          }
-        >
-          Exit (Logout)
-        </button>
+        <a className="btn" href="/logout">Exit (Logout)</a>
       </footer>
+
     </main>
   );
 }
