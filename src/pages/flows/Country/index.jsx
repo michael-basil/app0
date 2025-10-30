@@ -5,19 +5,17 @@ export default function FlowCountry() {
     <FlowPage
       slug="country"
       sections={{
-        intent: "Enrich profiles with country information at login for analytics, personalization, or risk signals.",
+        intent: "Enrich profiles with country information at login for analytics/personalization.",
         experience: [
-          "On each login, country and country_code are resolved from the request IP.",
-          "country/country_code are set once; last_login_* fields update every login.",
-          "Short timeouts and fail-open ensure the flow never blocks or slows login."
+          "On each login, country and code are resolved from the request IP.",
+          "country/country_code set once; last_login_* update every login.",
+          "Short timeouts and fail-open ensure no login delay."
         ],
         implementation:
 `// Post-Login Action (country via ipwho.is)
 exports.onExecutePostLogin = async (event, api) => {
-  // if (event.client?.name !== "app0") return; // optional scoping
   const ip = event.request?.ip;
-  let countryName = null, countryCode = null;
-
+  let name = null, code = null;
   if (ip) {
     try {
       const res = await fetch(\`https://ipwho.is/\${encodeURIComponent(ip)}\`, {
@@ -27,16 +25,14 @@ exports.onExecutePostLogin = async (event, api) => {
       });
       if (res?.ok) {
         const data = await res.json();
-        countryName = data?.country || null;
-        countryCode = data?.country_code || null;
+        name = data?.country || null;
+        code = data?.country_code || null;
       }
-    } catch (_) { /* fail-open */ }
+    } catch (_) {}
   }
-
-  const finalName = countryName || "Unknown";
-  const finalCode = countryCode || "XX";
+  const finalName = name || "Unknown";
+  const finalCode = code || "XX";
   const current = event.user.app_metadata || {};
-
   api.user.setAppMetadata({
     ...current,
     country: current.country || finalName,
@@ -47,8 +43,7 @@ exports.onExecutePostLogin = async (event, api) => {
 };`,
         links: [
           { text: "Manage user/app metadata", href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" },
-          { text: "ipwho.is", href: "https://ipwho.is/" },
-          { text: "Actions: Post-Login trigger", href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" }
+          { text: "ipwho.is", href: "https://ipwho.is/" }
         ]
       }}
     />

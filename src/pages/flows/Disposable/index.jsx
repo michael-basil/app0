@@ -5,7 +5,7 @@ export default function FlowDisposable() {
     <FlowPage
       slug="disposable"
       sections={{
-        intent: "Block sign-ups from disposable/temporary email domains to improve data quality and reduce abuse.",
+        intent: "Block sign-ups from disposable/temporary email domains.",
         experience: [
           "On first-time signup, the email is checked against a local denylist and a remote service.",
           "If disposable → sign-up is denied with a clear message.",
@@ -17,7 +17,6 @@ exports.onExecutePreUserRegistration = async (event, api) => {
   const email = event.user?.email || "";
   const domain = email.split("@")[1]?.toLowerCase();
 
-  // Quick local denylist
   const deny = new Set([
     "mailinator.com","trashmail.com","10minutemail.com",
     "guerrillamail.com","tempmail.email","getnada.com","yopmail.com"
@@ -26,7 +25,6 @@ exports.onExecutePreUserRegistration = async (event, api) => {
     return api.access.deny("Disposable email addresses are not allowed.");
   }
 
-  // Remote check (fail-open)
   try {
     const res = await fetch(\`https://www.disify.com/api/email/\${encodeURIComponent(email)}\`, { timeout: 3000 });
     if (res?.ok) {
@@ -35,7 +33,7 @@ exports.onExecutePreUserRegistration = async (event, api) => {
         return api.access.deny("Disposable email addresses are not allowed.");
       }
     }
-  } catch (_) { /* ignore network errors; allow signup */ }
+  } catch (_) { /* fail-open */ }
 };`,
         links: [
           { text: "Pre-User-Registration trigger", href: "https://auth0.com/docs/customize/actions/flows-and-triggers/pre-user-registration-flow" },

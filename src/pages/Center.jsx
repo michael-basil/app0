@@ -1,32 +1,45 @@
-// src/pages/Center.jsx
 import { useAuth0 } from "@auth0/auth0-react";
 import { flows } from "./flows/index.js";
 
+function groupByCategory(items) {
+  return items.reduce((acc, f) => {
+    (acc[f.category] ||= []).push(f);
+    return acc;
+  }, {});
+}
+
 export default function Center() {
-  const { user, logout } = useAuth0();
+  const { user } = useAuth0();
+  const groups = groupByCategory(flows);
+  const orderedCats = ["Login", "Enrichment", "Registration"]; // display order
 
   return (
     <main className="page">
-      <h1>🌿 App0 - Center</h1>
+      <h1>Center</h1>
       <p className="lede">
-        {user ? <>Welcome, <strong>{user.name || user.email}</strong>.</> : "Choose a flow."}
+        {user ? <>Welcome, <strong>{user.name || user.email}</strong>. Step into the flows below.</> : "Step into the flows below."}
       </p>
 
-      <section className="grid" style={{ marginTop: 16 }}>
-        {flows.map(f => (
-          <article className="card" key={f.slug}>
-            <h3>{f.title}</h3>
-            <p className="actions">
-              <a className="btn" href={`/flow/${f.slug}`}>Explore →</a>
-            </p>
-          </article>
-        ))}
-      </section>
+      {orderedCats.map(cat => (
+        <section key={cat} style={{marginTop: 20}}>
+          <h2 style={{marginTop: 0}}>{cat}</h2>
+          <div className="grid">
+            {(groups[cat] || []).map(f => (
+              <article className="card" key={f.slug}>
+                <h3>{f.title}</h3>
+                <p className="meta">{cat}</p>
+                <p className="actions">
+                  <a className="btn" href={`/flow/${f.slug}`}>Enter →</a>
+                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
 
       <footer className="nav center-footer" style={{ marginTop: 24 }}>
         <a className="btn" href="/logout">Exit (Logout)</a>
       </footer>
-
     </main>
   );
 }

@@ -9,8 +9,8 @@ export default function FlowPage({ slug, sections }) {
   const hasSlug = idx !== -1;
 
   // prev/next derived strictly from registry
-  const prev = hasSlug && idx > 0 ? `/flow/${flowOrder[idx - 1]}` : '/menu';
-  const next = hasSlug && idx < flowOrder.length - 1 ? `/flow/${flowOrder[idx + 1]}` : '/menu';
+  const prev = hasSlug && idx > 0 ? `/flow/${flowOrder[idx - 1]}` : '/center';
+  const next = hasSlug && idx < flowOrder.length - 1 ? `/flow/${flowOrder[idx + 1]}` : '/center';
 
   // title from registry (fallback to slug for safety)
   const title = (flows.find(f => f.slug === slug)?.title) || slug;
