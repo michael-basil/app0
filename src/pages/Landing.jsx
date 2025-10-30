@@ -13,8 +13,8 @@ export default function Landing() {
 
   return (
     <main className="page hero">
-      <h1 className="hero-title">🌿 App0 — Flowing Identity</h1>
-      <p className="hero-subtitle">A minimal single-page app demonstrating modern identity integration.</p>
+      <h1 className="hero-title">🌿 App0 — Flow-Based Trust</h1>
+      <p className="hero-subtitle">A minimal Auth0-powered SPA demonstrating adaptive, modern identity</p>
 
       <div className="logos">
         {logos.map((l, i) => (
