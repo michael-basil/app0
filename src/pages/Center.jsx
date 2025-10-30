@@ -11,18 +11,20 @@ function groupByCategory(items) {
 export default function Center() {
   const { user } = useAuth0();
   const groups = groupByCategory(flows);
-  const orderedCats = ["Login", "Enrichment", "Registration"]; // display order
+  const orderedCats = ["Login", "Enrichment", "Registration"];
 
   return (
     <main className="page">
       <h1>Center</h1>
       <p className="lede">
-        {user ? <>Welcome, <strong>{user.name || user.email}</strong>. Step into the flows below.</> : "Step into the flows below."}
+        {user
+          ? <>Welcome, <strong>{user.name || user.email}</strong>. Step into the flows below.</>
+          : "Step into the flows below."}
       </p>
 
       {orderedCats.map(cat => (
-        <section key={cat} style={{marginTop: 20}}>
-          <h2 style={{marginTop: 0}}>{cat}</h2>
+        <section key={cat} style={{ marginTop: 20 }}>
+          <h2 style={{ marginTop: 0 }}>{cat}</h2>
           <div className="grid">
             {(groups[cat] || []).map(f => (
               <article className="card" key={f.slug}>

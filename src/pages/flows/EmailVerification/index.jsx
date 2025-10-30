@@ -17,12 +17,11 @@ exports.onExecutePostLogin = async (event, api) => {
   // if (event.client?.name !== "app0") return; // optional scoping
   const isVerified = event.user?.email_verified === true;
 
-  // Allow social providers that inherently verify email with high confidence (optional)
+  // (Optional) Allow certain federated providers:
   // const isSocial = event.connection?.strategy !== "auth0";
   // if (isSocial) return;
 
   if (!isVerified) {
-    // Tip: Trigger resend with the Management API (optional, not required for demo)
     return api.access.deny("Please verify your email to continue.");
   }
 };`,
