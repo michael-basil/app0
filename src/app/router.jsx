@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Auth0ProviderWithNavigate from "../auth/Auth0ProviderWithNavigate.jsx";
 import Landing from "../pages/Landing.jsx";
 import Center from "../pages/Center.jsx";
-import Credits from "../pages/Credits.jsx";
 import FlowTerms from "../pages/flows/Terms/index.jsx";
 import FlowMFA from "../pages/flows/MFA/index.jsx";
 import FlowDisposable from "../pages/flows/Disposable/index.jsx";
@@ -20,7 +19,6 @@ export default function AppRouter() {
           <Route path="/flow/mfa" element={<RequireAuth component={FlowMFA} />} />
           <Route path="/flow/disposable" element={<RequireAuth component={FlowDisposable} />} />
           <Route path="/flow/country" element={<RequireAuth component={FlowCountry} />} />
-          <Route path="/credits" element={<Credits />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Auth0ProviderWithNavigate>
