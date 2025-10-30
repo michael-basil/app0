@@ -5,21 +5,6 @@ function LoginButton() {
   return <button onClick={() => loginWithRedirect()}>Log in</button>;
 }
 
-function LoginWithGoogle() {
-  const { loginWithRedirect } = useAuth0();
-  return (
-    <button
-      onClick={() =>
-        loginWithRedirect({
-          authorizationParams: { connection: "google-oauth2" }
-        })
-      }
-    >
-      Continue with Google
-    </button>
-  );
-}
-
 function LogoutButton() {
   const { logout } = useAuth0();
   return (
@@ -46,7 +31,6 @@ export default function App() {
       <h1>app0</h1>
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         <LoginButton />
-        <LoginWithGoogle />
         <LogoutButton />
       </div>
       <hr />
