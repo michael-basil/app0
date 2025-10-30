@@ -3,6 +3,8 @@ export default function NavArrows({ prevHref, nextHref }) {
     <footer className="nav">
       <a className="btn" href={prevHref}>← Prev</a>
       <span className="spacer" />
+      <a className="btn" href="/center">Center</a>
+      <span className="spacer" />
       <a className="btn" href={nextHref}>Next →</a>
     </footer>
   );
