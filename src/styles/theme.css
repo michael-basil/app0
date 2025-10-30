@@ -73,6 +73,7 @@ pre.code {
 }
 
 .card {
+	text-align: center;
 	background: var(--card);
 	padding: 16px;
 	border-radius: 12px;

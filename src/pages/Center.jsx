@@ -16,9 +16,8 @@ export default function Center() {
         {flows.map(f => (
           <article className="card" key={f.slug}>
             <h3>{f.title}</h3>
-            <p className="meta">Open the live flow.</p>
             <p className="actions">
-              <a className="btn" href={`/flow/${f.slug}`}>Open →</a>
+              <a className="btn" href={`/flow/${f.slug}`}>Explore →</a>
             </p>
           </article>
         ))}
