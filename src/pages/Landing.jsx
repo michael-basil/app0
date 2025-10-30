@@ -1,11 +1,11 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 const logos = [
-  { name: "Auth0", href: "https://auth0.com", src: "https://cdn.simpleicons.org/auth0/000000" },
-  { name: "Okta", href: "https://okta.com", src: "https://cdn.simpleicons.org/okta/000000" },
-  { name: "React", href: "https://react.dev", src: "https://cdn.simpleicons.org/react/000000" },
-  { name: "Node.js", href: "https://nodejs.org", src: "https://cdn.simpleicons.org/nodedotjs/000000" },
-  { name: "Vite", href: "https://vitejs.dev", src: "https://cdn.simpleicons.org/vite/000000" },
+  { name: "Auth0", href: "https://auth0.com",    src: "https://cdn.simpleicons.org/auth0/eb5424" },
+  { name: "Okta", href: "https://okta.com", src: "https://cdn.simpleicons.org/okta/007DC1" },
+  { name: "React", href: "https://react.dev",    src: "https://cdn.simpleicons.org/react/61dafb" },
+  { name: "Node.js", href: "https://nodejs.org", src: "https://cdn.simpleicons.org/nodedotjs/339933" },
+  { name: "Vite", href: "https://vitejs.dev",    src: "https://cdn.simpleicons.org/vite/646cff" },
 ];
 
 export default function Landing() {
