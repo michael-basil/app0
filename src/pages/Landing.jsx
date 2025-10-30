@@ -13,7 +13,7 @@ export default function Landing() {
 
   return (
     <main className="page hero">
-      <h1 className="hero-title">App0 — Flowing Identity</h1>
+      <h1 className="hero-title">🌿 App0 — Flowing Identity</h1>
       <p className="hero-subtitle">A minimal single-page app demonstrating modern identity integration.</p>
 
       <div className="logos">
