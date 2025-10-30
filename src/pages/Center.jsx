@@ -7,7 +7,7 @@ export default function Center() {
 
   return (
     <main className="page">
-      <h1>Center</h1>
+      <h1>🌿 App0 - Center</h1>
       <p className="lede">
         {user ? <>Welcome, <strong>{user.name || user.email}</strong>.</> : "Choose a flow."}
       </p>
