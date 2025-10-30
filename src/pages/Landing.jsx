@@ -1,28 +1,51 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
+const logos = [
+  { name: "Auth0", href: "https://auth0.com", src: "https://cdn.simpleicons.org/auth0/000000" },
+  { name: "Okta", href: "https://okta.com", src: "https://cdn.simpleicons.org/okta/000000" },
+  { name: "React", href: "https://react.dev", src: "https://cdn.simpleicons.org/react/000000" },
+  { name: "Node.js", href: "https://nodejs.org", src: "https://cdn.simpleicons.org/nodedotjs/000000" },
+  { name: "Vite", href: "https://vitejs.dev", src: "https://cdn.simpleicons.org/vite/000000" },
+];
+
 export default function Landing() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
-    <main className="page">
-      <h1>App0 — Flowing Identity</h1>
-      <p className="lede">
-        A minimal React + Vite SPA that presents identity flows as a live “slide deck.”
-      </p>
+    <main className="page hero">
+      <h1 className="hero-title">App0 — Flowing Identity</h1>
+      <p className="hero-subtitle">A minimal single-page app demonstrating modern identity integration.</p>
+
+      <div className="logos">
+        {logos.map((l, i) => (
+          <div className="logo-item" key={l.name}>
+            <a href={l.href} target="_blank" rel="noreferrer" aria-label={l.name}>
+              <img
+                src={l.src}
+                alt={l.name}
+                className="logo"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </a>
+            {i < logos.length - 1 && <span className="logo-plus">+</span>}
+          </div>
+        ))}
+      </div>
 
       {!isAuthenticated ? (
-        <p>
+        <p style={{ marginTop: 24 }}>
           <button className="btn" onClick={() => loginWithRedirect()}>Enter →</button>
         </p>
       ) : (
-        <p><a className="btn" href="/center">Go to Center →</a></p>
+        <p style={{ marginTop: 24 }}>
+          <a className="btn" href="/center">Go to Center →</a>
+        </p>
       )}
 
-      <p className="meta">
-        Built with <a href="https://react.dev" target="_blank">React</a>, <a href="https://vitejs.dev" target="_blank">Vite</a>,
-        <a href="https://nodejs.org" target="_blank"> Node.js</a>, and <a href="https://auth0.com" target="_blank">Auth0</a>. Hosted on <a href="https://aws.amazon.com/amplify/" target="_blank">AWS Amplify</a>.
+      <p className="meta" style={{ marginTop: 16 }}>
+        Logos served via <a href="https://simpleicons.org" target="_blank" rel="noreferrer">Simple Icons</a>.
       </p>
-      <p className="meta">Attributions & credits: see <a href="/credits">/credits</a>.</p>
     </main>
   );
 }
