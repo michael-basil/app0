@@ -1,6 +1,7 @@
 // src/pages/Center.jsx
 import { useAuth0 } from "@auth0/auth0-react";
 import { flows } from "./flows/index.js";
+import { Link } from "react-router-dom";
 
 export default function Center() {
   const { user } = useAuth0();
@@ -20,7 +21,7 @@ export default function Center() {
             <h3>{f.title}</h3>
             <p className="meta">{f.category}</p>
             <p className="actions">
-              <a className="btn" href={`/flow/${f.slug}`}>Enter →</a>
+              <Link className="btn" to={`/flow/${f.slug}`}>Enter →</Link>
             </p>
           </article>
         ))}
