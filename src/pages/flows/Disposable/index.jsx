@@ -20,6 +20,37 @@ export default function FlowDisposable() {
           "If disposable → deny with a helpful message; otherwise allow registration.",
           "Deploy the Action and add it to the Pre-User Registration flow. Verify outcomes in Dashboard → Logs."
         ],
+        code: [
+          {
+            label: "Post-Login Action (Block Disposable Emails)",
+            content: `exports.onExecutePreUserRegistration = async (event, api) => {
+  const email = event.user?.email || "";
+  const domain = email.split("@")[1]?.toLowerCase();
+  if (!domain) return;
+
+  // Fast local deny-list (optional quick hits)
+  const denylist = new Set([
+    "mailinator.com","trashmail.com","10minutemail.com","guerrillamail.com",
+    "tempmail.email","getnada.com","yopmail.com"
+  ]);
+  if (denylist.has(domain)) {
+    return api.access.deny("Disposable email addresses are not allowed.");
+  }
+
+  // Remote check (Disify)
+  const url = \`https://www.disify.com/api/email/\${encodeURIComponent(email)}\`;
+  const res = await fetch(url, { method: "GET", timeout: 3000 });
+  if (!res.ok) return; // fail-open
+  const data = await res.json();
+
+  // Disify returns { disposable: true/false, ... }
+  if (data && data.disposable === true) {
+    return api.access.deny("Disposable email addresses are not allowed.");
+  }
+};
+`
+          }
+        ],
         links: [
           { text: "Dashboard — Actions — Triggers",         href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
           { text: "Dashboard — Logs (Monitoring)",          href: "https://manage.auth0.com/#/logs" },

@@ -19,6 +19,17 @@ export default function FlowTerms() {
           "Build a Form: Step 1 displays T&C text + a required checkbox; Flow step writes consent payload.",
           "Render the Form from a Post-Login Action in the Login Flow only when user has not accepted.",
         ],
+        code: [
+          {
+            label: "Post-Login Action (Terms)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
+  if (event.user.app_metadata.privacy_policies !== true) {
+    api.prompt.render('FORM_ID_FROM_ASSOCIATED_APP');
+  }
+}
+`
+          }
+        ],
         links: [
           { text: "Dashboard — Users",                                  href: "https://manage.auth0.com/#/users" },
           { text: "Dashboard — Applications",                           href: "https://manage.auth0.com/#/applications" },

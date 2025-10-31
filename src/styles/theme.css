@@ -178,31 +178,67 @@ pre.code {
 }
 
 .topbar {
-  position: static;
-  background: transparent;
-  padding: 0;
+	position: static;
+	background: transparent;
+	padding: 0;
 }
 
 .btn-group {
-  display: inline-flex;
-  gap: 8px;
+	display: inline-flex;
+	gap: 8px;
 }
 
 .btn-sm {
-  padding: 6px 10px;
-  font-size: 0.9rem;
-  line-height: 1;
+	padding: 6px 10px;
+	font-size: 0.9rem;
+	line-height: 1;
 }
 
 .page-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin: 0 0 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin: 0 0 12px;
 }
 
 .page-title {
-  margin: 0;
-  line-height: 1.2;
+	margin: 0;
+	line-height: 1.2;
+}
+
+.collapsible {
+	margin: 12px 0 0;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--card);
+}
+
+.collapsible-summary {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 12px;
+	font-weight: 600;
+	list-style: none;
+}
+
+.collapsible-summary::-webkit-details-marker {
+	display: none;
+}
+
+.collapsible-summary::before {
+	content: "▸";
+	display: inline-block;
+	transform: rotate(0deg);
+	transition: transform 120ms ease;
+}
+
+.collapsible[open] .collapsible-summary::before {
+	transform: rotate(90deg);
+}
+
+.collapsible-body {
+	padding: 8px 12px 12px;
 }
