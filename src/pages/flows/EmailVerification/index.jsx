@@ -15,10 +15,9 @@ export default function FlowEmailVerify() {
         ],
         implementation: [
           "Dashboard → Emails: enable verification emails and configure the Verification Email template/provider.",
-          "Actions → Library: create a Post-Login Action that denies when user.email_verified !== true (optionally DB-only).",
-          "Actions → Flows → Login: add the Action to the Login flow (place above non-blocking enrichment). Save & Deploy.",
-          "SPA: add an /auth-error route/page to display Auth0’s ?error=… & error_description=…; update the auth guard to navigate there when an IdP error is present.",
-          "(Optional) Provide a backend endpoint to resend the verification email via Management API Jobs."
+          "Actions → Library: create a Post-Login Action that denies when user.email_verified !== true.",
+          "Actions → Flows → Login: add the Action to the Login flow.",
+          "SPA: add an /auth-error route/page to display Auth0’s ?error=… & error_description=…",
         ],
         links: [
           { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
