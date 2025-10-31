@@ -7,7 +7,7 @@ export const flows = [
   { slug: "mfa-only-db", title: "MFA for DB Users Only",           category: "Login" },
 
   // Enrichment
-  { slug: "country",     title: "Country Metadata (on login)",     category: "Enrichment" },
+  { slug: "country",     title: "Country Metadata",                 category: "Enrichment" },
 
   // Registration
   { slug: "disposable",  title: "Disposable Email Blocking",       category: "Registration" },

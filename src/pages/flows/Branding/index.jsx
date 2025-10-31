@@ -5,27 +5,19 @@ export default function FlowBranding() {
     <FlowPage
       slug="branding"
       sections={{
-        intent: "Present a themed Universal Login (logo, colors, title/description, background) to align identity UX with the product brand.",
+        intent: "Present a themed Universal Login (logo, colors, title/description, background).",
         experience: [
           "Users see customized Universal Login hosted by Auth0.",
-          "Branding updates are instant across all apps using Universal Login.",
-          "No code changes in the SPA for visual updates."
+          "Branding updates propagate instantly; no SPA code changes.",
+          "Login uses the latest theme every time."
         ],
         implementation:
 `// Auth0 Dashboard → Branding → Universal Login
-// 1) Page Title / Description
-// 2) Logo URL (e.g., Auth0/Okta mark or your brand)
-// 3) Primary Color
-// 4) Background Image (theme photo)
-// 5) (Optional) Customize default templates via Branding → Advanced
-
-// SPA: loginWithRedirect() always uses the latest branding.
-// Example (Landing.jsx):
-// const { loginWithRedirect } = useAuth0();
-// <button onClick={() => loginWithRedirect()}>Enter →</button>`,
+// - Page Title / Description
+// - Logo URL, Primary Color, Background Image
+// SPA triggers with loginWithRedirect().`,
         links: [
-          { text: "Universal Login – Branding", href: "https://auth0.com/docs/customize/universal-login-pages" },
-          { text: "Branding settings", href: "https://auth0.com/docs/customize/branding/universal-login-branding-options" }
+          { text: "Universal Login – Branding", href: "https://auth0.com/docs/customize/universal-login-pages" }
         ]
       }}
     />
