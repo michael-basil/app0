@@ -17,6 +17,7 @@ export default function FlowDisposable(props) {
           "Check a local denylist (e.g., in the Action or via an Action Secret/Config).",
           "Call a remote validator (e.g., Disify) with a short timeout and handle 4xx/5xx/429 gracefully.",
           "Fail-open design ensures rate-limiting or transient API issues never block legitimate signups.",
+          "Security note: In production, outbound API calls would use a fixed egress IP and any keys stored in a vault.",
           "If disposable → deny with a helpful message; otherwise allow registration.",
           "Deploy the Action and add it to the Pre-User Registration flow. Verify outcomes in Dashboard → Logs."
         ],

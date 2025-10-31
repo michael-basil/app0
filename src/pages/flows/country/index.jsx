@@ -17,6 +17,7 @@ export default function FlowCountry(props) {
           "Write results to app metadata keys: last_login_country, last_login_country_code.",
           "Use a very short timeout (e.g., ~3s) and catch errors so login isn’t delayed.",
           "Fail-open design also protects against external API rate limits or transient network errors.",
+          "Security note: In production, outbound API calls would use a fixed egress IP and any keys stored in a vault.",
           "Deploy the Action and add it to the Login flow (after any blocking policies)."
         ],
         code: [
