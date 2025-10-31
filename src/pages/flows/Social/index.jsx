@@ -15,8 +15,8 @@ export default function FlowSocial() {
         ],
         implementation: [
           "Dashboard → Authentication → Social: create/enable the Google connection.",
-          "Dashboard → Applications → (your application) → Connections: toggle Google ON.",
-          "Dashboard → Applications → (your application) → Settings: set allowed URLs for your SPA.",
+          "Dashboard → Applications → (your app) → Connections: toggle Google ON.",
+          "Dashboard → Applications → (your app) → Settings: set allowed URLs for your SPA.",
           "Wire app settings into the SPA (Auth0 Domain + Client ID) and run the React app.",
         ],
         links: [
