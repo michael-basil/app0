@@ -12,7 +12,6 @@ import FlowEmailVerify from "../pages/flows/verify/index.jsx";
 import FlowCountry from "../pages/flows/country/index.jsx";
 import FlowDisposable from "../pages/flows/disposable/index.jsx";
 import FlowTerms from "../pages/flows/terms/index.jsx";
-import Scroll from "../pages/Scroll.jsx";
 
 export default function AppRouter() {
   return (
@@ -30,7 +29,6 @@ export default function AppRouter() {
           <Route path="/flow/country" element={<RequireAuth component={FlowCountry} />} />
           <Route path="/flow/disposable" element={<RequireAuth component={FlowDisposable} />} />
           <Route path="/flow/terms" element={<RequireAuth component={FlowTerms} />} />
-          <Route path="/scroll" element={<RequireAuth component={() => <Scroll />} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Auth0ProviderWithNavigate>

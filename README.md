@@ -15,7 +15,6 @@ This demo is designed for:
 App0 can be:
 - **Demoed live** (navigate between `/center` and `/flow/...`)
 - **Explored hands-on** (clone and run locally or in Codespaces)
-- **Shared as a handout** (`/scroll` view shows all flows with code expanded)
 
 ---
 
@@ -159,8 +158,6 @@ These include both **login** and **registration** experiences, as well as enrich
 * A concise **Implementation Summary** — configuration steps or Actions code.
 * Links to the relevant **Auth0 documentation** and **dashboard pages**.
 
-You can also visit `/scroll` to render all flows sequentially — ideal for print or export.
-
 ---
 
 ## Troubleshooting
@@ -179,7 +176,6 @@ You can also visit `/scroll` to render all flows sequentially — ideal for prin
 
 * Auth0 centralizes authentication, so this SPA needs only **Domain** + **Client ID**.
 * Every feature (branding, MFA, metadata enrichment, consent) is configured in the dashboard — no redeploys required.
-* The **Scroll** route provides a self-contained, printable reference of all flows and code.
 * Developers can reproduce this setup easily using either a local environment, Codespaces, or Amplify hosting.
 * The architecture mirrors a real-world deployment but remains intentionally lightweight and readable.
 
