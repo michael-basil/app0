@@ -165,7 +165,7 @@ These include both **login** and **registration** experiences, as well as enrich
 
 | Symptom                               | Fix                                                                                                                                    |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **White screen after login**          | Check Allowed **Web Origins** and **Callback URLs** match the origin exactly.                                                          |
+| **Blank screen after login**          | Check Allowed **Web Origins** and **Callback URLs** match the origin exactly.                                                          |
 | **Repeated MFA prompts**              | Ensure MFA Action only triggers for DB logins (`strategy === "auth0"`) and verify MFA settings under **Security → Multi-Factor Auth**. |
 | **Google not showing on login**       | Confirm **Social → Google** exists and is toggled on under **Applications → Connections**.                                             |
 | **Verification loop / access_denied** | Post-Login Action correctly returns error; ensure SPA handles the redirect.                                                            |
