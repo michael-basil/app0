@@ -1,29 +1,30 @@
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowSocial(props) {
+export default function FlowLocal(props) {
   return (
     <FlowPage
-      slug="social"
+      slug="local"
       sections={{
         experience: [
-          "A traveler prefers speed and simplicity — they choose “Sign in with Google” because they trust it and want to skip remembering another password.",
-          "They see the Cruise-branded Universal Login page and feel confident it’s a safe, professional experience that matches the app’s theme.",
-          "Moments later, they’re onboard — signed in seamlessly, no MFA prompt, ready to explore their dashboard without friction.",
+          "A traveler prefers using their email and a password — they want a dedicated account they control with strong security.",
+          "On first sign-in they’re asked to verify their email — a quick check that builds trust before accessing personal data.",
+          "After verifying, they sign in again and complete a brief MFA challenge — a small step that reassures them their account is protected.",
         ],
         requirements: [
           "Core: Custom Universal Login branding visible.",
-          "Core: Social login (Google) via Universal Login.",
-          "Core: Email verification enforced (social emails usually pre-verified).",
+          "Core: Email/password via a Database connection (Universal Login).",
+          "Core: Email verification required before access.",
           "Core: Post-Login Action enriches user metadata with country name and code from IP lookup.",
-          "Enhanced: Conditional MFA (DB-only) ⇒ social users are exempt.",
+          "Enhanced: Conditional MFA (DB-only)",
           "Extra: Terms capture via Forms for Actions.",
         ],
         features: [
-          "Universal Login with custom branding and Google social connection.",
-          "Post-Login Actions: deny unverified; enrich user/app metadata with country from request context or IP lookup.",
-          "Conditional MFA policy: enforced only for database (non-social) users.",
-          "Forms for Actions: present Terms & Conditions before granting access.",
-          "Auth0 Logs for monitoring and demo traceability.",
+          "Universal Login (New) with Database (Username-Password-Authentication) connection.",
+          "Post-Login Actions: deny unverified; enrich user/app metadata with country information.",
+          "Pre-User-Registration Action: block disposable email domains before the user is created.",
+          "Conditional MFA policy applied only to database users (not social).",
+          "Forms for Actions (optional): capture Terms & Conditions during first login.",
+          "Visibility and troubleshooting via Auth0 Logs.",
         ],
         code: [
 {
@@ -82,9 +83,10 @@ export default function FlowSocial(props) {
 }
         ],
         links: [
+
           { text: "Dashboard — Users",                                  href: "https://manage.auth0.com/#/users" },
           { text: "Dashboard — Branding → Universal Login",             href: "https://manage.auth0.com/dashboard/#/universal-login/customizations-new" },
-          { text: "Dashboard — Social Connections",                     href: "https://manage.auth0.com/#/connections/social" },
+          { text: "Dashboard — Database Connections",                   href: "https://manage.auth0.com/#/connections/database" },
           { text: "Dashboard — Applications",                           href: "https://manage.auth0.com/#/applications" },
           { text: "Dashboard — Actions — Triggers",                     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
           { text: "Dashboard — Forms",                                  href: "https://forms.auth0.com/#/forms" },

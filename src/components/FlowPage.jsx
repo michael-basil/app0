@@ -29,10 +29,10 @@ export default function FlowPage({ slug, sections, expandCode = false, showContr
     return () => window.removeEventListener('keydown', onKey);
   }, [prev, next, navigate, showControls]);
 
-  const intentArr = asArray(sections.intent);
-  const experienceArr = asArray(sections.experience);
-  const implementationArr = asArray(sections.implementation);
-  const linksArr = asArray(sections.links);
+  const experienceArr   = asArray(sections.experience);
+  const requirementsArr = asArray(sections.requirements);
+  const featuresArr     = asArray(sections.features);
+  const linksArr        = asArray(sections.links);
 
   // Normalize code entries into {label, content}
   const codeArr = asArray(sections.code).map((c, i) =>
@@ -46,13 +46,6 @@ export default function FlowPage({ slug, sections, expandCode = false, showContr
         {showControls && <TopRightNav prevHref={prev} nextHref={next} showCenter />}
       </header>
 
-      {intentArr.length > 0 && (
-        <section>
-          <h2>Intent</h2>
-          {intentArr.map((p,i)=><p key={i}>{p}</p>)}
-        </section>
-      )}
-
       {experienceArr.length > 0 && (
         <section>
           <h2>Experience</h2>
@@ -60,16 +53,24 @@ export default function FlowPage({ slug, sections, expandCode = false, showContr
         </section>
       )}
 
-      {implementationArr.length > 0 && (
+      {requirementsArr.length > 0 && (
         <section>
-          <h2>Implementation</h2>
-          <ul>{implementationArr.map((li,i)=><li key={i}>{li}</li>)}</ul>
+          <h2>Requirements</h2>
+          <ul>{requirementsArr.map((li,i)=><li key={i}>{li}</li>)}</ul>
+        </section>
+      )}
+
+      {featuresArr.length > 0 && (
+        <section>
+          <h2>Features</h2>
+          <ul>{featuresArr.map((li,i)=><li key={i}>{li}</li>)}</ul>
         </section>
       )}
 
       {codeArr.length > 0 && (
         <section>
-          <Collapsible title="Show implementation code" defaultOpen={expandCode}>
+          <h2>Code</h2>
+          <Collapsible title="Show Code" defaultOpen={expandCode}>
             {codeArr.map((c, i) => (
               <div key={i} style={{ marginTop: i ? 12 : 0 }}>
                 {c.label && <div className="meta" style={{ margin: "0 0 6px" }}>{c.label}</div>}

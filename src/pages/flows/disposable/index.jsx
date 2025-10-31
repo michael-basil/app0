@@ -5,21 +5,20 @@ export default function FlowDisposable(props) {
     <FlowPage
       slug="disposable"
       sections={{
-        intent:
-          "Block signups from disposable / temporary email domains to improve quality and reduce fraud.",
         experience: [
-          "On first-time signup, the email’s domain is checked against a local denylist and a remote validation API.",
-          "If identified as disposable, signup is denied with a clear message.",
-          "If the remote check is unavailable or times out, we fail-open (signup proceeds) to avoid blocking legitimate users."
+          "A new traveler tries to sign up with a throwaway email — they want quick access without committing a real address.",
+          "This attempt is blocked and logged.",
         ],
-        implementation: [
-          "Create a Pre-User Registration Action (trigger fires before the user is created).",
-          "Check a local denylist (e.g., in the Action or via an Action Secret/Config).",
-          "Call a remote validator (e.g., Disify) with a short timeout and handle 4xx/5xx/429 gracefully.",
-          "Fail-open design ensures rate-limiting or transient API issues never block legitimate signups.",
-          "Security note: In production, outbound API calls would use a fixed egress IP and any keys stored in a vault.",
-          "If disposable → deny with a helpful message; otherwise allow registration.",
-          "Deploy the Action and add it to the Pre-User Registration flow. Verify outcomes in Dashboard → Logs."
+        requirements: [
+          "Enhanced: Block disposable / burner email addresses at signup.",
+          "Operational: Log outcomes for observability and demo traceability (Dashboard → Logs)."
+        ],
+        features: [
+          "Pre-User-Registration Action (runs before the user is created).",
+          "Local denylist for instant matches (common burner domains).",
+          "Remote validation via an external API (e.g., Disify) with short timeouts.",
+          "Fail-open strategy on validator errors/rate limits to avoid false blocks.",
+          "Clear user messaging via `api.access.deny` when a disposable is detected."
         ],
         code: [
           {

@@ -5,13 +5,9 @@ import Landing from "../pages/Landing.jsx";
 import Center from "../pages/Center.jsx";
 import Logout from "../pages/Logout.jsx";
 import RequireAuth from "../components/RequireAuth.jsx";
-import FlowBranding from "../pages/flows/branding/index.jsx";
+import FlowLocal from "../pages/flows/local/index.jsx";
 import FlowSocial from "../pages/flows/social/index.jsx";
-import FlowDBLoginMFA from "../pages/flows/db-login-mfa/index.jsx";
-import FlowEmailVerify from "../pages/flows/verify/index.jsx";
-import FlowCountry from "../pages/flows/country/index.jsx";
 import FlowDisposable from "../pages/flows/disposable/index.jsx";
-import FlowTerms from "../pages/flows/terms/index.jsx";
 
 export default function AppRouter() {
   return (
@@ -22,13 +18,9 @@ export default function AppRouter() {
           <Route path="/auth-error" element={<AuthError />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/center" element={<RequireAuth component={Center} />} />
-          <Route path="/flow/branding" element={<RequireAuth component={FlowBranding} />} />
-          <Route path="/flow/social" element={<RequireAuth component={FlowSocial} />} />
-          <Route path="/flow/db-login-mfa" element={<RequireAuth component={FlowDBLoginMFA} />} />
-          <Route path="/flow/verify" element={<RequireAuth component={FlowEmailVerify} />} />
-          <Route path="/flow/country" element={<RequireAuth component={FlowCountry} />} />
           <Route path="/flow/disposable" element={<RequireAuth component={FlowDisposable} />} />
-          <Route path="/flow/terms" element={<RequireAuth component={FlowTerms} />} />
+          <Route path="/flow/local" element={<RequireAuth component={FlowLocal} />} />
+          <Route path="/flow/social" element={<RequireAuth component={FlowSocial} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Auth0ProviderWithNavigate>

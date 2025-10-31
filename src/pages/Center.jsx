@@ -7,10 +7,10 @@ export default function Center() {
 
   return (
     <main className="page">
-    <header className="page-header">
-      <h1 className="page-title">🌿 App0 — Center</h1>
-      <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
-    </header>
+      <header className="page-header">
+        <h1 className="page-title">🌿 App0 — Center</h1>
+        <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
+      </header>
 
       <p className="lede">
         {user
@@ -22,7 +22,6 @@ export default function Center() {
         {flows.map((f) => (
           <article className="card" key={f.slug}>
             <h3>{f.title}</h3>
-            <p className="meta">{f.category}</p>
             <p className="actions">
               <Link className="btn" to={`/flow/${f.slug}`}>Enter →</Link>
             </p>
