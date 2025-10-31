@@ -22,9 +22,9 @@ export default function FlowSocial() {
         links: [
           { text: "Dashboard — Social Connections",     href: "https://manage.auth0.com/#/connections/social" },
           { text: "Dashboard — Applications",           href: "https://manage.auth0.com/#/applications" },
+          { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
           { text: "React SPA Quickstart",               href: "https://auth0.com/docs/quickstart/spa/react" },
           { text: "Actions — Login Flow (Post-Login)",  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
-          { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
         ],
       }}
     />

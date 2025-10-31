@@ -17,8 +17,8 @@ export default function FlowBranding() {
           "Save and preview changes instantly; no redeploys required."
         ],
         links: [
-          { text: "Auth0 Docs — Customize Universal Login Pages", href: "https://auth0.com/docs/customize/universal-login-pages" },
-          { text: "Auth0 Dashboard — Branding → Universal Login", href: "https://manage.auth0.com/dashboard/#/universal-login/customizations-new" }
+          { text: "Dashboard — Branding → Universal Login", href: "https://manage.auth0.com/dashboard/#/universal-login/customizations-new" },
+          { text: "Customize Universal Login Pages",        href: "https://auth0.com/docs/customize/universal-login-pages" },
         ]
       }}
     />

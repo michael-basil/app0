@@ -20,11 +20,11 @@ export default function FlowCountry() {
           "Deploy the Action and add it to the Login flow (after any blocking policies).",
         ],
         links: [
-          { text: "Actions — Login Flow (Post-Login)",        href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
-          { text: "Dashboard — Actions — Triggers",           href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
-          { text: "Make an API Call Using Actions",           href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },
-          { text: "Docs — Manage User & App Metadata",        href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" },
-          { text: "Dashboard — Users (inspect app_metadata)", href: "https://manage.auth0.com/#/users" },
+          { text: "Dashboard — Users",                    href: "https://manage.auth0.com/#/users" },
+          { text: "Dashboard — Actions — Triggers",       href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
+          { text: "Actions — Login Flow (Post-Login)",    href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
+          { text: "Make an API Call Using Actions",       href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },
+          { text: "Manage User & App Metadata",           href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" },
         ],
       }}
     />
