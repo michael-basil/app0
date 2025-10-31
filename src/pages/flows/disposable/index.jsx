@@ -52,8 +52,8 @@ export default function FlowDisposable(props) {
         ],
         links: [
           { text: "Dashboard — Actions — Triggers",         href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
-          { text: "Dashboard — Logs (Monitoring)",          href: "https://manage.auth0.com/#/logs" },
           { text: "Dashboard — Users",                      href: "https://manage.auth0.com/#/users" },
+          { text: "Dashboard — Monitoring — Logs",          href: "https://manage.auth0.com/#/logs" },
           { text: "Pre-user Registration Trigger",          href: "https://auth0.com/docs/customize/actions/explore-triggers/signup-and-login-triggers/pre-user-registration-trigger" },
           { text: "Fraudulent Signup Prevention",           href: "https://support.auth0.com/center/s/article/How-to-combat-fradulent-signups-from-disposable-email-services" },
           { text: "Make an API Call Using Actions",         href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },

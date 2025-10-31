@@ -32,6 +32,7 @@ export default function FlowDBLoginMFA(props) {
           { text: "Dashboard — Applications",           href: "https://manage.auth0.com/#/applications" },
           { text: "Dashboard — Security — MFA",         href: "https://manage.auth0.com/dashboard/#/security/mfa" },
           { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
+          { text: "Dashboard — Monitoring — Logs",      href: "https://manage.auth0.com/#/logs" },
           { text: "MFA overview",                       href: "https://auth0.com/docs/secure/multi-factor-authentication" },
           { text: "Actions — Login Flow (Post-Login)",  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
         ],

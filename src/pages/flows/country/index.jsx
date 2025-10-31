@@ -52,6 +52,7 @@ export default function FlowCountry(props) {
         links: [
           { text: "Dashboard — Users",                    href: "https://manage.auth0.com/#/users" },
           { text: "Dashboard — Actions — Triggers",       href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
+          { text: "Dashboard — Monitoring — Logs",        href: "https://manage.auth0.com/#/logs" },
           { text: "Actions — Login Flow (Post-Login)",    href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
           { text: "Make an API Call Using Actions",       href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },
           { text: "Manage User & App Metadata",           href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" },

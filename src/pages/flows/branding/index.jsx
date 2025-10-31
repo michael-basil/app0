@@ -20,6 +20,7 @@ export default function FlowBranding(props) {
         ],
         links: [
           { text: "Dashboard — Branding → Universal Login", href: "https://manage.auth0.com/dashboard/#/universal-login/customizations-new" },
+          { text: "Dashboard — Monitoring — Logs",          href: "https://manage.auth0.com/#/logs" },
           { text: "Customize Universal Login Pages",        href: "https://auth0.com/docs/customize/universal-login-pages" }
         ]
       }}

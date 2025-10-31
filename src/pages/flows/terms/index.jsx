@@ -35,6 +35,7 @@ export default function FlowTerms(props) {
           { text: "Dashboard — Forms",                                  href: "https://forms.auth0.com/#/forms" },
           { text: "Dashboard — Flows",                                  href: "https://forms.auth0.com/#/flows" },
           { text: "Dashboard — Vault",                                  href: "https://forms.auth0.com/#/vault" },
+          { text: "Dashboard — Monitoring — Logs",                      href: "https://manage.auth0.com/#/logs" },
           { text: "Actions — Login Flow (Post-Login)",                  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
           { text: "Add Terms and Conditions using Forms for Actions:",  href: "https://support.auth0.com/center/s/article/Add-Terms-and-Conditions-to-the-Signup-Screen" },
         ]
