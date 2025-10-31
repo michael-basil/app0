@@ -27,7 +27,7 @@ export default function Center() {
       </div>
 
       <footer className="nav center-footer" style={{ marginTop: 24 }}>
-        <a className="btn" href="/logout">Exit (Logout)</a>
+        <a className="btn" href="/logout">Exit (Logout) →</a>
       </footer>
     </main>
   );

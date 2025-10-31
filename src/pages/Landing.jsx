@@ -35,7 +35,7 @@ export default function Landing() {
 
       {!isAuthenticated ? (
         <p style={{ marginTop: 24 }}>
-          <button className="btn" onClick={() => loginWithRedirect()}>Enter →</button>
+          <button className="btn" onClick={() => loginWithRedirect()}>Enter (Login) →</button>
         </p>
       ) : (
         <p style={{ marginTop: 24 }}>
