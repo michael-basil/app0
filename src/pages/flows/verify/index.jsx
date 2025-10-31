@@ -27,10 +27,11 @@ export default function FlowEmailVerify(props) {
           }
         ],
         links: [
-          { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
-          { text: "Dashboard — Templates",              href: "https://manage.auth0.com/#/templates" },
-          { text: "Dashboard — Monitoring — Logs",      href: "https://manage.auth0.com/#/logs" },
-          { text: "Verify Emails using Auth0",          href: "https://auth0.com/docs/manage-users/user-accounts/verify-emails" },
+          { text: "Dashboard — Actions — Triggers",       href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
+          { text: "Dashboard — Templates",                href: "https://manage.auth0.com/#/templates" },
+          { text: "Dashboard — Monitoring — Logs",        href: "https://manage.auth0.com/#/logs" },
+          { text: "Dashboard — User Management — Users",  href: "https://manage.auth0.com/#/users" },
+          { text: "Verify Emails using Auth0",            href: "https://auth0.com/docs/manage-users/user-accounts/verify-emails" },
         ]
       }}
       {...props}
