@@ -1,3 +1,4 @@
+// src/pages/flows/EmailVerification/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
 export default function FlowEmailVerify() {
@@ -5,29 +6,25 @@ export default function FlowEmailVerify() {
     <FlowPage
       slug="verify"
       sections={{
-        intent: "Enforce verified emails: block login until the user verifies their email address.",
+        intent:
+          "Require verified email addresses; deny unverified users at the IdP and surface a clear message in the app.",
         experience: [
-          "User signs up or logs in with unverified email.",
-          "Login is denied with a friendly message; verification email is (or was) sent.",
-          "After clicking the verify link, repeat login → access granted."
+          "User signs in; if email is unverified, Auth0 denies the login and redirects back with an error.",
+          "The SPA detects the error and shows an explanatory page with next steps.",
+          "After clicking the verification link, the next login proceeds normally."
         ],
-        implementation:
-`// Post-Login Action: Email verification gate
-exports.onExecutePostLogin = async (event, api) => {
-  // if (event.client?.name !== "app0") return; // optional scoping
-  const isVerified = event.user?.email_verified === true;
-
-  // (Optional) Allow certain federated providers:
-  // const isSocial = event.connection?.strategy !== "auth0";
-  // if (isSocial) return;
-
-  if (!isVerified) {
-    return api.access.deny("Please verify your email to continue.");
-  }
-};`,
+        implementation: [
+          "Dashboard → Emails: enable verification emails and configure the Verification Email template/provider.",
+          "Actions → Library: create a Post-Login Action that denies when user.email_verified !== true (optionally DB-only).",
+          "Actions → Flows → Login: add the Action to the Login flow (place above non-blocking enrichment). Save & Deploy.",
+          "SPA: add an /auth-error route/page to display Auth0’s ?error=… & error_description=…; update the auth guard to navigate there when an IdP error is present.",
+          "(Optional) Provide a backend endpoint to resend the verification email via Management API Jobs."
+        ],
         links: [
-          { text: "Email verification overview", href: "https://auth0.com/docs/manage-users/user-accounts/email-verification" },
-          { text: "Actions: Post-Login trigger", href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" }
+          { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
+          { text: "Dashboard — Logs (Monitoring)",      href: "https://manage.auth0.com/#/logs" },
+          { text: "Dashboard — Templates",              href: "https://manage.auth0.com/#/templates" },
+          { text: "Verify Emails using Auth0",          href: "https://auth0.com/docs/manage-users/user-accounts/verify-emails" },
         ]
       }}
     />

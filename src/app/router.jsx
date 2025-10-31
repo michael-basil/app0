@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Auth0ProviderWithNavigate from "../auth/Auth0ProviderWithNavigate.jsx";
+import AuthError from "../pages/AuthError.jsx";
 import Landing from "../pages/Landing.jsx";
 import Center from "../pages/Center.jsx";
 import Logout from "../pages/Logout.jsx";
@@ -18,6 +19,7 @@ export default function AppRouter() {
       <Auth0ProviderWithNavigate>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/auth-error" element={<AuthError />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/center" element={<RequireAuth component={Center} />} />
           <Route path="/flow/branding" element={<RequireAuth component={FlowBranding} />} />
