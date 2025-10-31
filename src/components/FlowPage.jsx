@@ -7,7 +7,7 @@ import CodeBlock from './CodeBlock.jsx';
 
 function asArray(v){ return !v ? [] : Array.isArray(v) ? v : [v]; }
 
-export default function FlowPage({ slug, sections, expandCode = false, showControls = true }) {
+export default function FlowPage({ slug, sections, expandMenus = false, showControls = true }) {
   const navigate = useNavigate();
 
   const idx = flowOrder.indexOf(slug);
@@ -70,7 +70,7 @@ export default function FlowPage({ slug, sections, expandCode = false, showContr
       {codeArr.length > 0 && (
         <section>
           <h2>Code</h2>
-          <Collapsible title="Show Code" defaultOpen={expandCode}>
+          <Collapsible defaultOpen={expandMenus}>
             {codeArr.map((c, i) => (
               <div key={i} style={{ marginTop: i ? 12 : 0 }}>
                 {c.label && <div className="meta" style={{ margin: "0 0 6px" }}>{c.label}</div>}
@@ -84,11 +84,13 @@ export default function FlowPage({ slug, sections, expandCode = false, showContr
       {linksArr.length > 0 && (
         <section>
           <h2>References</h2>
+          <Collapsible defaultOpen={expandMenus}>
           <ul>{linksArr.map((l,i)=>(
             <li key={i}>
               {typeof l === 'string' ? l : <a href={l.href} target="_blank" rel="noreferrer">{l.text}</a>}
             </li>
           ))}</ul>
+          </Collapsible>
         </section>
       )}
     </article>

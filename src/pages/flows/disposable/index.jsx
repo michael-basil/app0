@@ -11,14 +11,11 @@ export default function FlowDisposable(props) {
         ],
         requirements: [
           "Enhanced: Block disposable / burner email addresses at signup.",
-          "Operational: Log outcomes for observability and demo traceability (Dashboard → Logs)."
         ],
         features: [
           "Pre-User-Registration Action (runs before the user is created).",
           "Local denylist for instant matches (common burner domains).",
           "Remote validation via an external API (e.g., Disify) with short timeouts.",
-          "Fail-open strategy on validator errors/rate limits to avoid false blocks.",
-          "Clear user messaging via `api.access.deny` when a disposable is detected."
         ],
         code: [
           {

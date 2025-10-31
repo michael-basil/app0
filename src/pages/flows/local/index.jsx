@@ -79,6 +79,8 @@ export default function FlowLocal(props) {
     api.prompt.render('FORM_ID_FROM_ASSOCIATED_APP');
   }
 }
+exports.onContinuePostLogin = async function (event, api) {
+}
 `
 }
         ],

@@ -1,7 +1,17 @@
-export default function Collapsible({ title = "Show code", children, defaultOpen = false }) {
+import { useState } from 'react';
+
+export default function Collapsible({ children, defaultOpen = false }) {
+  const [isOpen, setIsOpen] = useState(!!defaultOpen);
+
   return (
-    <details className="collapsible" open={defaultOpen}>
-      <summary className="collapsible-summary">{title}</summary>
+    <details
+      className="collapsible"
+      open={isOpen}
+      onToggle={(e) => setIsOpen(e.currentTarget.open)}
+    >
+      <summary className="collapsible-summary">
+        {isOpen ? 'Collapse' : 'Expand'}
+      </summary>
       <div className="collapsible-body">{children}</div>
     </details>
   );
