@@ -201,3 +201,5 @@ Open for demonstration and educational purposes.
 Forks and adaptations encouraged for Auth0 integration learning.
 
 ---
+
+Built to illustrate clarity, flow, and fearless simplicity in modern identity. 🌿
