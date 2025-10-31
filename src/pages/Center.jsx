@@ -8,7 +8,7 @@ export default function Center() {
   return (
     <main className="page">
       <header className="page-header">
-        <h1 className="page-title">🌿 App0 — Center</h1>
+        <h1 className="page-title">Cruise0 — Center</h1>
         <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
       </header>
 

@@ -1,7 +1,7 @@
-# 🌿 App0 — Auth0 Modern Identity Demo
+# Cruise0 — Auth0 Modern Identity Demo for Travel0
 
-App0 is a **minimal modern web app** demonstrating Auth0’s adaptive identity for single-page applications.  
-It serves as a **live presentation framework** — each “flow card” represents a real Auth0 feature or pattern, complete with intent, user experience, and implementation notes.
+Cruise0 is a **minimal modern web app** demonstrating Auth0’s adaptive identity for single-page applications.  
+It serves as a **live presentation framework** — each “flow card” represents a real Auth0 capability with **Experience**, **Requirements**, **Features**, **Code**, and **References**.
 
 ---
 
@@ -12,7 +12,7 @@ This demo is designed for:
 - **Developers or architects** exploring modern Auth0 + React integration.
 - **Evaluators or stakeholders** who prefer guided, hands-on demonstration instead of static slides.
 
-App0 can be:
+Cruise0 can be:
 - **Demoed live** (navigate between `/center` and `/flow/...`)
 - **Explored hands-on** (clone and run locally or in Codespaces)
 
@@ -105,7 +105,7 @@ npm run dev
 # open http://localhost:5173
 ```
 
-You’ll start at the landing page (`/`), log in via Auth0, and land at `/center` to explore flows.
+You’ll start at the landing page (`/`), authenticate via Auth0, and land at `/center` to explore Cruise0 flows.
 
 ---
 
@@ -149,14 +149,15 @@ Learn more: [AWS Amplify Hosting](https://aws.amazon.com/amplify/hosting/)
 ## Exploring the Flows
 
 Each **Flow Card** highlights a real Auth0 capability.  
-The Center page (`/center`) displays all available flows grouped by category, and each one can be opened individually for live demonstration.
+The Center page (`/center`) displays all available flows; open any of them for a live demonstration.
 
 These include both **login** and **registration** experiences, as well as enrichment examples and system-side actions. Each flow provides:
 
-* A clear **Intent** — what the capability demonstrates.
-* The expected **User Experience** — how it behaves during login or registration.
-* A concise **Implementation Summary** — configuration steps or Actions code.
-* Links to the relevant **Auth0 documentation** and **dashboard pages**.
+* **Experience** — what the user does and why it matters.
+* **Requirements** — how this maps to Core / Enhanced / Extra items.
+* **Features** — Auth0 capabilities used (high-level).
+* **Code** — minimal Action or SPA snippets.
+* **References** — links to relevant Auth0 docs and dashboard areas.
 
 ---
 
