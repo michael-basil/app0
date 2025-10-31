@@ -7,10 +7,13 @@ export default function Center() {
 
   return (
     <main className="page">
-      <header className="page-header">
-        <h1 className="page-title">🌿 App0 — Center</h1>
+    <header className="page-header">
+      <h1 className="page-title">🌿 App0 — Center</h1>
+      <div className="btn-group">
+        <Link className="btn btn-sm" to="/scroll">Scroll →</Link>
         <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
-      </header>
+      </div>
+    </header>
 
       <p className="lede">
         {user

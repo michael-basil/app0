@@ -1,7 +1,6 @@
-// src/pages/flows/Terms/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowTerms() {
+export default function FlowTerms(props) {
   return (
     <FlowPage
       slug="terms"
@@ -40,6 +39,7 @@ export default function FlowTerms() {
           { text: "Add Terms and Conditions using Forms for Actions:",  href: "https://support.auth0.com/center/s/article/Add-Terms-and-Conditions-to-the-Signup-Screen" },
         ]
       }}
+      {...props}
     />
   );
 }

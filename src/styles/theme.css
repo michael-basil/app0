@@ -185,6 +185,7 @@ pre.code {
 .btn-group {
 	display: inline-flex;
 	gap: 8px;
+	align-items: center;
 }
 
 .btn-sm {
@@ -249,6 +250,11 @@ pre.code {
 }
 
 @media print {
-    .btn, .btn-group-noprint, .topbar { display: none !important; }
-  	.scroll .scroll-section { page-break-after: always; border: none; }
+    .btn, .btn-group-noprint, .topbar { 
+		display: none !important; 
+	}
+  	.scroll .scroll-section { 
+		page-break-after: always; 
+		border: none; 
+	}
 }

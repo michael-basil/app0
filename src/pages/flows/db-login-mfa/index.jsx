@@ -1,6 +1,6 @@
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowDBLoginMFA() {
+export default function FlowDBLoginMFA(props) {
   return (
     <FlowPage
       slug="db-login-mfa"
@@ -36,6 +36,7 @@ export default function FlowDBLoginMFA() {
           { text: "Actions — Login Flow (Post-Login)",  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
         ],
       }}
+      {...props}
     />
   );
 }

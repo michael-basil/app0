@@ -7,7 +7,7 @@ import CodeBlock from './CodeBlock.jsx';
 
 function asArray(v){ return !v ? [] : Array.isArray(v) ? v : [v]; }
 
-export default function FlowPage({ slug, sections }) {
+export default function FlowPage({ slug, sections, expandCode = false, showControls = true }) {
   const navigate = useNavigate();
 
   const idx = flowOrder.indexOf(slug);
@@ -19,6 +19,7 @@ export default function FlowPage({ slug, sections }) {
   if (!hasSlug) console.error(`[FlowPage] Unknown slug "${slug}"`);
 
   useEffect(() => {
+    if (!showControls) return;
     const onKey = (e) => {
       if (e.key === 'ArrowLeft')  navigate(prev);
       if (e.key === 'ArrowRight') navigate(next);
@@ -26,7 +27,7 @@ export default function FlowPage({ slug, sections }) {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [prev, next, navigate]);
+  }, [prev, next, navigate, showControls]);
 
   const intentArr = asArray(sections.intent);
   const experienceArr = asArray(sections.experience);
@@ -42,33 +43,33 @@ export default function FlowPage({ slug, sections }) {
     <article className="page">
       <header className="page-header">
         <h1 className="page-title">{title}</h1>
-        <TopRightNav prevHref={prev} nextHref={next} showCenter />
+        {showControls && <TopRightNav prevHref={prev} nextHref={next} showCenter />}
       </header>
 
       {intentArr.length > 0 && (
         <section>
           <h2>Intent</h2>
-          {intentArr.map((p, i) => <p key={i}>{p}</p>)}
+          {intentArr.map((p,i)=><p key={i}>{p}</p>)}
         </section>
       )}
 
       {experienceArr.length > 0 && (
         <section>
           <h2>Experience</h2>
-          <ul>{experienceArr.map((li, i) => <li key={i}>{li}</li>)}</ul>
+          <ul>{experienceArr.map((li,i)=><li key={i}>{li}</li>)}</ul>
         </section>
       )}
 
       {implementationArr.length > 0 && (
         <section>
           <h2>Implementation</h2>
-          <ul>{implementationArr.map((li, i) => <li key={i}>{li}</li>)}</ul>
+          <ul>{implementationArr.map((li,i)=><li key={i}>{li}</li>)}</ul>
         </section>
       )}
 
       {codeArr.length > 0 && (
         <section>
-          <Collapsible title="Implementation code">
+          <Collapsible title="Show implementation code" defaultOpen={expandCode}>
             {codeArr.map((c, i) => (
               <div key={i} style={{ marginTop: i ? 12 : 0 }}>
                 {c.label && <div className="meta" style={{ margin: "0 0 6px" }}>{c.label}</div>}
@@ -82,7 +83,7 @@ export default function FlowPage({ slug, sections }) {
       {linksArr.length > 0 && (
         <section>
           <h2>References</h2>
-          <ul>{linksArr.map((l, i) => (
+          <ul>{linksArr.map((l,i)=>(
             <li key={i}>
               {typeof l === 'string' ? l : <a href={l.href} target="_blank" rel="noreferrer">{l.text}</a>}
             </li>

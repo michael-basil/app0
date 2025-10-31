@@ -1,7 +1,6 @@
-// src/pages/flows/EmailVerification/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowEmailVerify() {
+export default function FlowEmailVerify(props) {
   return (
     <FlowPage
       slug="verify"
@@ -34,6 +33,7 @@ export default function FlowEmailVerify() {
           { text: "Verify Emails using Auth0",          href: "https://auth0.com/docs/manage-users/user-accounts/verify-emails" },
         ]
       }}
+      {...props}
     />
   );
 }

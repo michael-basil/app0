@@ -1,7 +1,6 @@
-// src/pages/flows/Country/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowCountry() {
+export default function FlowCountry(props) {
   return (
     <FlowPage
       slug="country"
@@ -58,6 +57,7 @@ export default function FlowCountry() {
           { text: "Manage User & App Metadata",           href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" },
         ],
       }}
+      {...props}
     />
   );
 }

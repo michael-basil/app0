@@ -1,7 +1,6 @@
-// src/pages/flows/Social/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowSocial() {
+export default function FlowSocial(props) {
   return (
     <FlowPage
       slug="social"
@@ -27,6 +26,7 @@ export default function FlowSocial() {
           { text: "Actions — Login Flow (Post-Login)",  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
         ],
       }}
+      {...props}
     />
   );
 }

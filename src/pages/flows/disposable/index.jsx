@@ -1,7 +1,6 @@
-// src/pages/flows/Disposable/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
-export default function FlowDisposable() {
+export default function FlowDisposable(props) {
   return (
     <FlowPage
       slug="disposable"
@@ -61,6 +60,7 @@ export default function FlowDisposable() {
           { text: "Disify - Free Email Validation API",     href: "https://www.disify.com" },
         ]
       }}
+      {...props}
     />
   );
 }

@@ -41,7 +41,7 @@ export default function Scroll() {
         }
         return (
           <section key={f.slug} className="scroll-section">
-            <FlowComp />
+            <FlowComp expandCode showControls={false} />
           </section>
         );
       })}
