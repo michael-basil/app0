@@ -10,13 +10,14 @@ export default function FlowCountry(props) {
         experience: [
           "On each login, resolve country and ISO code from the request IP.",
           "Store results as app metadata: last_login_country and last_login_country_code.",
-          "Short timeouts and fail-open behavior ensure lookups never block login.",
+          "Short timeouts and fail-open behavior ensure lookups never block login."
         ],
         implementation: [
           "Create a Post-Login Action that fetches country data from a public IP-geo service.",
           "Write results to app metadata keys: last_login_country, last_login_country_code.",
           "Use a very short timeout (e.g., ~3s) and catch errors so login isn’t delayed.",
-          "Deploy the Action and add it to the Login flow (after any blocking policies).",
+          "Fail-open design also protects against external API rate limits or transient network errors.",
+          "Deploy the Action and add it to the Login flow (after any blocking policies)."
         ],
         code: [
           {
@@ -37,10 +38,10 @@ export default function FlowCountry(props) {
       }
     } catch (_) {
       // fail-open: don't throw, just continue with nulls
+      // NOTE: external API may rate-limit or time out — handled safely
     }
   }
 
-  // Fallback labels if the lookup failed
   const finalName = countryName || "Unknown";
   const finalCode = countryCode || "XX";
 
@@ -55,8 +56,8 @@ export default function FlowCountry(props) {
           { text: "Dashboard — Monitoring — Logs",        href: "https://manage.auth0.com/#/logs" },
           { text: "Actions — Login Flow (Post-Login)",    href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
           { text: "Make an API Call Using Actions",       href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },
-          { text: "Manage User & App Metadata",           href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" },
-        ],
+          { text: "Manage User & App Metadata",           href: "https://auth0.com/docs/manage-users/user-accounts/metadata/manage-user-metadata" }
+        ]
       }}
       {...props}
     />

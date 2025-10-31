@@ -16,12 +16,13 @@ export default function FlowDisposable(props) {
           "Create a Pre-User Registration Action (trigger fires before the user is created).",
           "Check a local denylist (e.g., in the Action or via an Action Secret/Config).",
           "Call a remote validator (e.g., Disify) with a short timeout and handle 4xx/5xx/429 gracefully.",
+          "Fail-open design ensures rate-limiting or transient API issues never block legitimate signups.",
           "If disposable → deny with a helpful message; otherwise allow registration.",
           "Deploy the Action and add it to the Pre-User Registration flow. Verify outcomes in Dashboard → Logs."
         ],
         code: [
           {
-            label: "Post-Login Action (Block Disposable Emails)",
+            label: "Pre-User Registration Action (Block Disposable Emails)",
             content: `exports.onExecutePreUserRegistration = async (event, api) => {
   const email = event.user?.email || "";
   const domain = email.split("@")[1]?.toLowerCase();
@@ -38,16 +39,19 @@ export default function FlowDisposable(props) {
 
   // Remote check (Disify)
   const url = \`https://www.disify.com/api/email/\${encodeURIComponent(email)}\`;
-  const res = await fetch(url, { method: "GET", timeout: 3000 });
-  if (!res.ok) return; // fail-open
-  const data = await res.json();
+  try {
+    const res = await fetch(url, { method: "GET", timeout: 3000 });
+    if (!res.ok) return; // fail-open
+    const data = await res.json();
 
-  // Disify returns { disposable: true/false, ... }
-  if (data && data.disposable === true) {
-    return api.access.deny("Disposable email addresses are not allowed.");
+    // Disify returns { disposable: true/false, ... }
+    if (data && data.disposable === true) {
+      return api.access.deny("Disposable email addresses are not allowed.");
+    }
+  } catch (err) {
+    // fail-open: API may be down or rate-limited
   }
-};
-`
+};`
           }
         ],
         links: [
@@ -57,7 +61,7 @@ export default function FlowDisposable(props) {
           { text: "Pre-user Registration Trigger",          href: "https://auth0.com/docs/customize/actions/explore-triggers/signup-and-login-triggers/pre-user-registration-trigger" },
           { text: "Fraudulent Signup Prevention",           href: "https://support.auth0.com/center/s/article/How-to-combat-fradulent-signups-from-disposable-email-services" },
           { text: "Make an API Call Using Actions",         href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },
-          { text: "Disify - Free Email Validation API",     href: "https://www.disify.com" },
+          { text: "Disify - Free Email Validation API",     href: "https://www.disify.com" }
         ]
       }}
       {...props}
