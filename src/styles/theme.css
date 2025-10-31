@@ -90,7 +90,6 @@ pre.code {
 	gap: 12px;
 	margin-top: 24px;
 	margin-bottom: 32px;
-	/* breathing room at bottom */
 }
 
 .nav .spacer {
@@ -241,4 +240,15 @@ pre.code {
 
 .collapsible-body {
 	padding: 8px 12px 12px;
+}
+
+.scroll .scroll-section {
+  	margin: 24px 0 48px;
+  	padding-bottom: 24px;
+  	border-bottom: 1px dashed var(--border);
+}
+
+@media print {
+    .btn, .btn-group-noprint, .topbar { display: none !important; }
+  	.scroll .scroll-section { page-break-after: always; border: none; }
 }
