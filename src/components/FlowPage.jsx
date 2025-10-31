@@ -1,30 +1,29 @@
+// src/components/FlowPage.jsx
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { flows, flowOrder } from '../pages/flows/index.js';
-import NavArrows from './NavArrows.jsx';
+import TopRightNav from './TopRightNav.jsx';
 
-function asArray(v){ 
-  return !v ? [] : Array.isArray(v) ? v : [v]; 
-}
+function asArray(v) { return !v ? [] : Array.isArray(v) ? v : [v]; }
 
 export default function FlowPage({ slug, sections }) {
   const navigate = useNavigate();
 
+  // registry lookups
   const idx = flowOrder.indexOf(slug);
   const hasSlug = idx !== -1;
-
   const prev = hasSlug && idx > 0 ? `/flow/${flowOrder[idx - 1]}` : '/center';
   const next = hasSlug && idx < flowOrder.length - 1 ? `/flow/${flowOrder[idx + 1]}` : '/center';
   const title = (flows.find(f => f.slug === slug)?.title) || slug;
 
-  if (!hasSlug) {
-    console.error(`[FlowPage] Unknown slug "${slug}"`);
-  }
+  if (!hasSlug) console.error(`[FlowPage] Unknown slug "${slug}"`);
 
+  // keyboard shortcuts
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'ArrowLeft')  navigate(prev);
       if (e.key === 'ArrowRight') navigate(next);
+      if (e.key === 'c' || e.key === 'C') navigate('/center');
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -37,7 +36,10 @@ export default function FlowPage({ slug, sections }) {
 
   return (
     <article className="page">
-      <h1>{title}</h1>
+      <header className="page-header">
+        <h1 className="page-title">{title}</h1>
+        <TopRightNav prevHref={prev} nextHref={next} showCenter />
+      </header>
 
       {intentArr.length > 0 && (
         <section>
@@ -65,13 +67,13 @@ export default function FlowPage({ slug, sections }) {
           <h2>References</h2>
           <ul>{linksArr.map((l,i)=>(
             <li key={i}>
-              {typeof l === 'string' ? l : <a href={l.href} target="_blank" rel="noreferrer">{l.text}</a>}
+              {typeof l === 'string'
+                ? l
+                : <a href={l.href} target="_blank" rel="noreferrer">{l.text}</a>}
             </li>
           ))}</ul>
         </section>
       )}
-
-      <NavArrows prevHref={prev} nextHref={next} />
     </article>
   );
 }

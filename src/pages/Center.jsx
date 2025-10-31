@@ -1,14 +1,17 @@
-// src/pages/Center.jsx
 import { useAuth0 } from "@auth0/auth0-react";
-import { flows } from "./flows/index.js";
 import { Link } from "react-router-dom";
+import { flows } from "./flows/index.js";
 
 export default function Center() {
   const { user } = useAuth0();
 
   return (
     <main className="page">
-      <h1>🌿 App0 — Center</h1>
+      <header className="page-header">
+        <h1 className="page-title">🌿 App0 — Center</h1>
+        <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
+      </header>
+
       <p className="lede">
         {user
           ? <>Welcome, <strong>{user.name || user.email}</strong>. Step into the flows below.</>
@@ -26,10 +29,6 @@ export default function Center() {
           </article>
         ))}
       </div>
-
-      <footer className="nav center-footer" style={{ marginTop: 24 }}>
-        <a className="btn" href="/logout">Exit (Logout) →</a>
-      </footer>
     </main>
   );
 }
