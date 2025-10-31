@@ -1,3 +1,4 @@
+// src/pages/flows/Social/index.jsx
 import FlowPage from '../../../components/FlowPage.jsx';
 
 export default function FlowSocial() {
@@ -5,22 +6,26 @@ export default function FlowSocial() {
     <FlowPage
       slug="social"
       sections={{
-        intent: "Allow users to authenticate via Google (federated identity) using Universal Login.",
+        intent:
+          "Allow users to authenticate with Google (federated identity) via Auth0’s Universal Login.",
         experience: [
-          "Click Enter → Universal Login → choose Google.",
-          "Auth0 redirects to Google; on success, returns authenticated.",
-          "In this demo, social users are exempt from MFA."
+          "Click “Enter” → Universal Login → choose Google.",
+          "Auth0 redirects to Google; on success, user returns authenticated.",
+          "In this demo, social users are exempt from MFA (policy lives in a Post-Login Action).",
         ],
-        implementation:
-`// Auth0 Dashboard:
- // Connections → Social → Google → Enable
- // Applications → app0 → Connections → Toggle Google
- // Configure Allowed Callback/Logout/Web Origins for your app URLs.
-// SPA: loginWithRedirect() triggers Universal Login.`,
+        implementation: [
+          "Dashboard → Authentication → Social: create/enable the Google connection.",
+          "Dashboard → Applications → (your application) → Connections: toggle Google ON.",
+          "Dashboard → Applications → (your application) → Settings: set allowed URLs for your SPA.",
+          "Wire app settings into the SPA (Auth0 Domain + Client ID) and run the React app.",
+        ],
         links: [
-          { text: "Google social connection", href: "https://auth0.com/docs/authenticate/identity-providers/social/google" },
-          { text: "Universal Login", href: "https://auth0.com/docs/authenticate/login/auth0-universal-login" }
-        ]
+          { text: "Dashboard — Social Connections",     href: "https://manage.auth0.com/#/connections/social" },
+          { text: "Dashboard — Applications",           href: "https://manage.auth0.com/#/applications" },
+          { text: "React SPA Quickstart",               href: "https://auth0.com/docs/quickstart/spa/react" },
+          { text: "Actions — Login Flow (Post-Login)",  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
+          { text: "Dashboard — Actions — Triggers",     href: "https://manage.auth0.com/dashboard/#/actions/triggers" },
+        ],
       }}
     />
   );
