@@ -53,7 +53,6 @@ export default function AuthError() {
 
       <div className="nav center-footer" style={{ marginTop: 12, gap: 8 }}>
         <Link className="btn" to="/">Try sign-in again</Link>
-        <Link className="btn btn-ghost" to="/center">Back to Center</Link>
       </div>
     </main>
   );
