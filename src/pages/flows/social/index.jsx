@@ -13,12 +13,12 @@ export default function FlowSocial(props) {
           "Conditional policy bypasses MFA for social; login completes smoothly."
         ],
         requirements: [
-          "Core: Universal Login with Cruise0 branding visible.",
-          "Core: Google social connection enabled and assigned to the app.",
-          "Core: Email verification enforced (social users typically pre-verified).",
-          "Core: Post-Login Action enriches user metadata with country name and code.",
-          "Enhanced: Conditional MFA applies only to database logins (social exempt).",
-          "Extra: Terms & Conditions capture via Forms for Actions."
+          "Core: Google social login via Universal Login.",
+          "Core: Cruise0 branding visible on Universal Login (logo, title, description, background).",
+          "Core: Email verification enforced; show error if unverified (social typically pre-verified).",
+          "Core: Post-Login Action enriches user metadata with country (from IP).",
+          "Enhanced: Conditional MFA applies only to database users (social exempt).",
+          "Extra: Terms & Conditions required via Forms for Actions."
         ],
         code: [
 {

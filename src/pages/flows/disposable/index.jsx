@@ -10,7 +10,7 @@ export default function FlowDisposable(props) {
           "The attempt is blocked and logged by Auth0.",
         ],
         requirements: [
-          "Core: Pre-User-Registration Action validates email before user creation."
+          "Enhanced: Block disposable/burner email domains during registration using an Action and a validator."
         ],
         code: [
           {

@@ -12,13 +12,13 @@ export default function FlowLocal(props) {
           "Terms & Conditions form is presented — user accepts consent to proceed.",
           "Conditional policy presents MFA, user enrolls; login completes smoothly."
         ],
-        "requirements": [
-          "Core: Universal Login with Cruise0 branding visible.",
-          "Core: Database (Username-Password-Authentication) connection enabled and assigned.",
-          "Core: Email verification required before granting access.",
-          "Core: Post-Login Action enriches user metadata with country name and code.",
+        requirements: [
+          "Core: Database (email/password) login via Universal Login.",
+          "Core: Cruise0 branding visible on Universal Login (logo, title, description, background).",
+          "Core: Email verification required before access; show error if unverified.",
+          "Core: Post-Login Action enriches user metadata with country (from IP).",
           "Enhanced: Conditional MFA enforced for database users only.",
-          "Extra: Terms & Conditions capture via Forms for Actions."
+          "Extra: Terms & Conditions required via Forms for Actions."
         ],
         code: [
 {
