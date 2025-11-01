@@ -14,6 +14,19 @@ export default function FlowDisposable(props) {
         ],
         code: [
           {
+            label: "React SPA Wiring (Provider · Login · Routing)",
+            content: `
+// Provider (uses @auth0/auth0-react)
+import { Auth0Provider } from '@auth0/auth0-react';
+...
+// Trigger login (Google vs. DB)
+import { useAuth0 } from '@auth0/auth0-react';
+const { loginWithRedirect } = useAuth0();
+...
+// Routing after login
+import { Routes, Route, Navigate } from 'react-router-dom';`
+          },
+          {
             label: "Pre-User Registration Action (Block Disposable Emails)",
             content: `exports.onExecutePreUserRegistration = async (event, api) => {
   const email = event.user?.email || "";

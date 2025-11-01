@@ -21,25 +21,38 @@ export default function FlowSocial(props) {
           "Extra: Terms & Conditions required via Forms for Actions."
         ],
         code: [
-{
-  label: "Post-Login Action (Deny Unverified)",
-  content: `exports.onExecutePostLogin = async (event, api) => {
+          {
+            label: "React SPA Wiring (Provider · Login · Routing)",
+            content: `
+// Provider (uses @auth0/auth0-react)
+import { Auth0Provider } from '@auth0/auth0-react';
+...
+// Trigger login (Google vs. DB)
+import { useAuth0 } from '@auth0/auth0-react';
+const { loginWithRedirect } = useAuth0();
+...
+// Routing after login
+import { Routes, Route, Navigate } from 'react-router-dom';`
+          },
+          {
+            label: "Post-Login Action (Deny Unverified)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
   const verified = event.user?.email_verified === true;
   if (!verified) api.access.deny("Please verify your email address to continue.");
 };`
-},
-{
-  label: "Post-Login Action (MFA for Password Logins)",
-  content: `exports.onExecutePostLogin = async (event, api) => {
+          },
+          {
+            label: "Post-Login Action (MFA for Password Logins)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
   if (event.connection?.strategy === "auth0") {
     // Enable MFA for this login. Tenant MFA must have at least one factor enabled.
     api.multifactor.enable("any");
   }
 };`
-},
-{
-  label: "Post-Login Action (Set Country Metadata)",
-  content: `exports.onExecutePostLogin = async (event, api) => {
+          },
+          {
+            label: "Post-Login Action (Set Country Metadata)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
   const ip = event.request?.ip;
   let countryName = null;
   let countryCode = null;
@@ -65,10 +78,10 @@ export default function FlowSocial(props) {
   api.user.setAppMetadata("last_login_country", finalName);
   api.user.setAppMetadata("last_login_country_code", finalCode);
 };`
-},
-{
-  label: "Post-Login Action (Terms)",
-  content: `exports.onExecutePostLogin = async (event, api) => {
+          },
+          {
+            label: "Post-Login Action (Terms)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
   if (event.user.app_metadata.privacy_policies !== true) {
     api.prompt.render('FORM_ID_FROM_ASSOCIATED_APP');
   }
@@ -76,7 +89,7 @@ export default function FlowSocial(props) {
 exports.onContinuePostLogin = async function (event, api) {
 }
 `
-}
+          }
         ],
         links: [
           { text: "Dashboard — Users",                                  href: "https://manage.auth0.com/#/users" },
