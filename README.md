@@ -1,6 +1,6 @@
 # Cruise0 Modernization: Unlocking Trust Through Identity
 
-A polished proof-of-concept showing how Auth0 powers Cruise0’s modernization:
+A proof-of-concept showing how Auth0 powers Cruise0’s modernization:
 - **Seamless Social Sign-Up** (Google)
 - **Verified Sign-Up + MFA** (email/password + MFA)
 - **Block Disposable Email** (Action + domain validator)
