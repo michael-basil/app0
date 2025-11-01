@@ -128,7 +128,7 @@ pre.code {
   position: absolute; inset: 0;
   background:
     linear-gradient(180deg, rgba(11,54,90,.75), rgba(14,27,38,.85)),
-    url("https://get.pxhere.com/photo/water-boat-night-lake-ship-travel-reflection-vehicle-yacht-marina-port-neon-light-cruise-caribbean-watercraft-cruise-ship-passenger-ship-luxury-yacht-holiday-cruise-ocean-liner-725590.jpg")
+    url("/background.jpg")
       center/cover no-repeat;
   filter: saturate(1.1);
 }
