@@ -4,26 +4,28 @@ import { flows } from "./flows/index.js";
 
 export default function Center() {
   const { user } = useAuth0();
+  const displayName =
+    (user && (user.name || user.email)) ? (user.name || user.email) : "traveler";
 
   return (
     <main className="page">
       <header className="page-header">
-        <h1 className="page-title">Cruise0 — Center</h1>
+        <h1 className="page-title">Below Deck: The Engine Room</h1>
         <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
       </header>
 
       <p className="lede">
-        {user
-          ? <>Welcome, <strong>{user.name || user.email}</strong>. Step into the flows below.</>
-          : "Step into the flows below."}
+        Welcome aboard, <b>{displayName}</b>. Ready to explore what powers the Cruise0 experience?
       </p>
 
       <div className="grid">
         {flows.map((f) => (
-          <article className="card" key={f.slug}>
+          <article key={f.slug} className="card">
             <h3>{f.title}</h3>
             <p className="actions">
-              <Link className="btn" to={`/flow/${f.slug}`}>Enter →</Link>
+              <Link className="btn" to={`/flow/${f.slug}`}>
+                {f.cta || "View Flow →"}
+              </Link>
             </p>
           </article>
         ))}

@@ -1,51 +1,41 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-const logos = [
-  { name: "Auth0", href: "https://auth0.com",    src: "https://cdn.simpleicons.org/auth0/eb5424" },
-  { name: "Okta", href: "https://okta.com", src: "https://cdn.simpleicons.org/okta/007DC1" },
-  { name: "React", href: "https://react.dev",    src: "https://cdn.simpleicons.org/react/61dafb" },
-  { name: "Node.js", href: "https://nodejs.org", src: "https://cdn.simpleicons.org/nodedotjs/339933" },
-  { name: "Vite", href: "https://vitejs.dev",    src: "https://cdn.simpleicons.org/vite/646cff" },
-];
-
 export default function Landing() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
-    <main className="page hero">
-      <h1 className="hero-title">Cruise0 — Auth0-Driven Identity</h1>
-      <p className="hero-subtitle">A minimal Auth0-powered SPA demonstrating adaptive, modern identity for Travel0</p>
+    <main className="page">
+      <header className="page-header hero">
+        <img
+          className="brand-mark"
+          src="https://www.svgrepo.com/show/455219/cruise-ship.svg"
+          alt="Cruise0"
+          width="72"
+          height="72"
+        />
+        <h1 className="hero-title">Cruise0 Modernization: Unlocking Trust Through Identity</h1>
+        <p className="lede">
+          Step aboard the Cruise0 proof of concept — a guided tour of modern identity in motion.
+        </p>
 
-      <div className="logos">
-        {logos.map((l, i) => (
-          <div className="logo-item" key={l.name}>
-            <a href={l.href} target="_blank" rel="noreferrer" aria-label={l.name}>
-              <img
-                src={l.src}
-                alt={l.name}
-                className="logo"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-              />
+        {!isAuthenticated ? (
+          <p className="actions">
+            <button className="btn btn-lg" onClick={() => loginWithRedirect()}>
+              Sign In to Board
+            </button>
+          </p>
+        ) : (
+          <p className="actions">
+            <a className="btn btn-lg" href="/center">
+              Enter the Engine Room
             </a>
-            {i < logos.length - 1 && <span className="logo-plus">+</span>}
-          </div>
-        ))}
-      </div>
+          </p>
+        )}
+      </header>
 
-      {!isAuthenticated ? (
-        <p style={{ marginTop: 24 }}>
-          <button className="btn" onClick={() => loginWithRedirect()}>Enter (Login) →</button>
-        </p>
-      ) : (
-        <p style={{ marginTop: 24 }}>
-          <a className="btn" href="/center">Go to Center →</a>
-        </p>
-      )}
-
-      <p className="meta" style={{ marginTop: 16 }}>
-        Logos served via <a href="https://simpleicons.org" target="_blank" rel="noreferrer">Simple Icons</a>.
-      </p>
+      <footer className="meta" style={{ marginTop: 40, textAlign: "center" }}>
+        Modernization builds capability. Transformation redirects attention.
+      </footer>
     </main>
   );
 }

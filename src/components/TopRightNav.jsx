@@ -11,7 +11,7 @@ export default function TopRightNav({
     <div className="topbar">
       <div className="btn-group">
         <button className="btn btn-sm" onClick={() => navigate(prevHref)}>← Prev</button>
-        {showCenter && <button className="btn btn-sm" onClick={() => navigate("/center")}>Center</button>}
+        {showCenter && <button className="btn btn-sm" onClick={() => navigate("/center")}>Return to the Bridge ↑</button>}
         <button className="btn btn-sm" onClick={() => navigate(nextHref)}>Next →</button>
       </div>
     </div>
