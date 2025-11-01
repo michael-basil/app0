@@ -155,8 +155,7 @@ These include both **login** and **registration** experiences, as well as enrich
 
 * **Experience** — what the user does and why it matters.
 * **Requirements** — how this maps to Core / Enhanced / Extra items.
-* **Features** — Auth0 capabilities used (high-level).
-* **Code** — minimal Action or SPA snippets.
+* **Implementation** — minimal Action or SPA snippets.
 * **References** — links to relevant Auth0 docs and dashboard areas.
 
 ---

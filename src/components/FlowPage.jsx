@@ -31,7 +31,6 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
 
   const experienceArr   = asArray(sections.experience);
   const requirementsArr = asArray(sections.requirements);
-  const featuresArr     = asArray(sections.features);
   const linksArr        = asArray(sections.links);
 
   // Normalize code entries into {label, content}
@@ -60,16 +59,9 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
         </section>
       )}
 
-      {featuresArr.length > 0 && (
-        <section>
-          <h2>Features</h2>
-          <ul>{featuresArr.map((li,i)=><li key={i}>{li}</li>)}</ul>
-        </section>
-      )}
-
       {codeArr.length > 0 && (
         <section>
-          <h2>Code</h2>
+          <h2>Implementation</h2>
           <Collapsible defaultOpen={expandMenus}>
             {codeArr.map((c, i) => (
               <div key={i} style={{ marginTop: i ? 12 : 0 }}>

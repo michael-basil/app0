@@ -6,24 +6,19 @@ export default function FlowSocial(props) {
       slug="social"
       sections={{
         experience: [
-          "A traveler prefers speed and simplicity — they choose “Sign in with Google” because they trust it and want to skip remembering another password.",
-          "They see the Cruise-branded Universal Login page and feel confident it’s a safe, professional experience that matches the app’s theme.",
-          "Moments later, they’re onboard — signed in seamlessly, no MFA prompt, ready to explore their dashboard without friction.",
+          "User selects Sign in with Google for speed and simplicity.",
+          "Cruise0-branded Universal Login page presented building trust and familiarity.",
+          "Auth0 federates to Google and validates the returned identity token.",
+          "Terms & Conditions form is presented — user accepts consent to proceed.",
+          "Conditional policy bypasses MFA for social; login completes smoothly."
         ],
         requirements: [
-          "Core: Custom Universal Login branding visible.",
-          "Core: Social login (Google) via Universal Login.",
-          "Core: Email verification enforced (social emails usually pre-verified).",
-          "Core: Post-Login Action enriches user metadata with country name and code from IP lookup.",
-          "Enhanced: Conditional MFA (DB-only) ⇒ social users are exempt.",
-          "Extra: Terms capture via Forms for Actions.",
-        ],
-        features: [
-          "Universal Login with custom branding and Google social connection.",
-          "Post-Login Actions: deny unverified; enrich user/app metadata with country from request context or IP lookup.",
-          "Conditional MFA policy: enforced only for database (non-social) users.",
-          "Forms for Actions: present Terms & Conditions before granting access.",
-          "Auth0 Logs for monitoring and demo traceability.",
+          "Core: Universal Login with Cruise0 branding visible.",
+          "Core: Google social connection enabled and assigned to the app.",
+          "Core: Email verification enforced (social users typically pre-verified).",
+          "Core: Post-Login Action enriches user metadata with country name and code.",
+          "Enhanced: Conditional MFA applies only to database logins (social exempt).",
+          "Extra: Terms & Conditions capture via Forms for Actions."
         ],
         code: [
 {

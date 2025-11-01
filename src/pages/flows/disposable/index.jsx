@@ -6,16 +6,11 @@ export default function FlowDisposable(props) {
       slug="disposable"
       sections={{
         experience: [
-          "A new traveler tries to sign up with a throwaway email — they want quick access without committing a real address.",
-          "This attempt is blocked and logged.",
+          "User attempts signup with a temporary/disposable email.",
+          "The attempt is blocked and logged by Auth0.",
         ],
         requirements: [
-          "Enhanced: Block disposable / burner email addresses at signup.",
-        ],
-        features: [
-          "Pre-User-Registration Action (runs before the user is created).",
-          "Local denylist for instant matches (common burner domains).",
-          "Remote validation via an external API (e.g., Disify) with short timeouts.",
+          "Core: Pre-User-Registration Action validates email before user creation."
         ],
         code: [
           {

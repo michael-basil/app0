@@ -5,26 +5,20 @@ export default function FlowLocal(props) {
     <FlowPage
       slug="local"
       sections={{
-        experience: [
-          "A traveler prefers using their email and a password — they want a dedicated account they control with strong security.",
-          "On first sign-in they’re asked to verify their email — a quick check that builds trust before accessing personal data.",
-          "After verifying, they sign in again and complete a brief MFA challenge — a small step that reassures them their account is protected.",
+        "experience": [
+          "User registers with email + password to own their credentials.",
+          "Auth0 sends a verification email; unverified logins are denied.",
+          "After verifying, user resumes the authentication flow.",
+          "Terms & Conditions form is presented — user accepts consent to proceed.",
+          "Conditional policy presents MFA, user enrolls; login completes smoothly."
         ],
-        requirements: [
-          "Core: Custom Universal Login branding visible.",
-          "Core: Email/password via a Database connection (Universal Login).",
-          "Core: Email verification required before access.",
-          "Core: Post-Login Action enriches user metadata with country name and code from IP lookup.",
-          "Enhanced: Conditional MFA (DB-only)",
-          "Extra: Terms capture via Forms for Actions.",
-        ],
-        features: [
-          "Universal Login (New) with Database (Username-Password-Authentication) connection.",
-          "Post-Login Actions: deny unverified; enrich user/app metadata with country information.",
-          "Pre-User-Registration Action: block disposable email domains before the user is created.",
-          "Conditional MFA policy applied only to database users (not social).",
-          "Forms for Actions (optional): capture Terms & Conditions during first login.",
-          "Visibility and troubleshooting via Auth0 Logs.",
+        "requirements": [
+          "Core: Universal Login with Cruise0 branding visible.",
+          "Core: Database (Username-Password-Authentication) connection enabled and assigned.",
+          "Core: Email verification required before granting access.",
+          "Core: Post-Login Action enriches user metadata with country name and code.",
+          "Enhanced: Conditional MFA enforced for database users only.",
+          "Extra: Terms & Conditions capture via Forms for Actions."
         ],
         code: [
 {
