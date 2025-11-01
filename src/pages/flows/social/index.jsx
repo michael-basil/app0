@@ -7,10 +7,10 @@ export default function FlowSocial(props) {
       sections={{
         experience: [
           "User selects Sign in with Google for speed and simplicity.",
-          "Cruise0-branded Universal Login page presented building trust and familiarity.",
-          "Auth0 federates to Google and validates the returned identity token.",
-          "Terms & Conditions form is presented — user accepts consent to proceed.",
-          "Conditional policy bypasses MFA for social; login completes smoothly."
+          "Cruise0-branded Universal Login page is presented, reinforcing trust and familiarity.",
+          "User grants consent for Auth0 to share their Google identity with Cruise0 via OpenID Connect.",
+          "Terms & Conditions form is presented — user reviews and accepts to proceed.",
+          "Conditional policy bypasses MFA for social logins; authentication completes smoothly."
         ],
         requirements: [
           "Core: Google social login via Universal Login.",
@@ -35,19 +35,10 @@ const { loginWithRedirect } = useAuth0();
 import { Routes, Route, Navigate } from 'react-router-dom';`
           },
           {
-            label: "Post-Login Action (Deny Unverified)",
+            label: "Post-Login Action (Block Unverified Emails)",
             content: `exports.onExecutePostLogin = async (event, api) => {
   const verified = event.user?.email_verified === true;
   if (!verified) api.access.deny("Please verify your email address to continue.");
-};`
-          },
-          {
-            label: "Post-Login Action (MFA for Password Logins)",
-            content: `exports.onExecutePostLogin = async (event, api) => {
-  if (event.connection?.strategy === "auth0") {
-    // Enable MFA for this login. Tenant MFA must have at least one factor enabled.
-    api.multifactor.enable("any");
-  }
 };`
           },
           {
@@ -80,7 +71,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';`
 };`
           },
           {
-            label: "Post-Login Action (Terms)",
+            label: "Post-Login Action (Render Terms Prompt)",
             content: `exports.onExecutePostLogin = async (event, api) => {
   if (event.user.app_metadata.privacy_policies !== true) {
     api.prompt.render('FORM_ID_FROM_ASSOCIATED_APP');
@@ -89,6 +80,15 @@ import { Routes, Route, Navigate } from 'react-router-dom';`
 exports.onContinuePostLogin = async function (event, api) {
 }
 `
+          },
+          {
+            label: "Post-Login Action (Trigger MFA Local)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
+  if (event.connection?.strategy === "auth0") {
+    // Enable MFA for this login. Tenant MFA must have at least one factor enabled.
+    api.multifactor.enable("any");
+  }
+};`
           }
         ],
         links: [

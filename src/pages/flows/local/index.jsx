@@ -5,12 +5,12 @@ export default function FlowLocal(props) {
     <FlowPage
       slug="local"
       sections={{
-        "experience": [
-          "User registers with email + password to own their credentials.",
-          "Auth0 sends a verification email; unverified logins are denied.",
-          "After verifying, user resumes the authentication flow.",
-          "Terms & Conditions form is presented — user accepts consent to proceed.",
-          "Conditional policy presents MFA, user enrolls; login completes smoothly."
+        experience: [
+          "User signs up with email and password to own their credentials.",
+          "User receives a verification email and is redirected to a pending-verification page.",
+          "After verifying, user returns to continue signing in.",
+          "Terms & Conditions form is presented — user reviews and accepts to proceed.",
+          "Conditional policy requires MFA; user enrolls and completes authentication smoothly."
         ],
         requirements: [
           "Core: Database (email/password) login via Universal Login.",
@@ -35,19 +35,10 @@ const { loginWithRedirect } = useAuth0();
 import { Routes, Route, Navigate } from 'react-router-dom';`
           },
           {
-            label: "Post-Login Action (Deny Unverified)",
+            label: "Post-Login Action (Block Unverified Emails)",
             content: `exports.onExecutePostLogin = async (event, api) => {
   const verified = event.user?.email_verified === true;
   if (!verified) api.access.deny("Please verify your email address to continue.");
-};`
-          },
-          {
-            label: "Post-Login Action (MFA for Password Logins)",
-            content: `exports.onExecutePostLogin = async (event, api) => {
-  if (event.connection?.strategy === "auth0") {
-    // Enable MFA for this login. Tenant MFA must have at least one factor enabled.
-    api.multifactor.enable("any");
-  }
 };`
           },
           {
@@ -80,7 +71,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';`
 };`
           },
           {
-            label: "Post-Login Action (Terms)",
+            label: "Post-Login Action (Render Terms Prompt)",
             content: `exports.onExecutePostLogin = async (event, api) => {
   if (event.user.app_metadata.privacy_policies !== true) {
     api.prompt.render('FORM_ID_FROM_ASSOCIATED_APP');
@@ -89,6 +80,15 @@ import { Routes, Route, Navigate } from 'react-router-dom';`
 exports.onContinuePostLogin = async function (event, api) {
 }
 `
+          },
+          {
+            label: "Post-Login Action (Trigger MFA Local)",
+            content: `exports.onExecutePostLogin = async (event, api) => {
+  if (event.connection?.strategy === "auth0") {
+    // Enable MFA for this login. Tenant MFA must have at least one factor enabled.
+    api.multifactor.enable("any");
+  }
+};`
           }
         ],
         links: [
