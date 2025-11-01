@@ -8,7 +8,7 @@ export default function Landing() {
       <header className="page-header hero">
         <img
           className="brand-mark"
-          src="https://www.svgrepo.com/show/455219/cruise-ship.svg"
+          src="/logo.png"
           alt="Cruise0"
           width="72"
           height="72"
