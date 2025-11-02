@@ -133,11 +133,60 @@ Click *Save and Publish* again.
 
 ---
 
-**Result:** Your Universal Login will now use Cruise0’s colors, logo, and background imagery, aligning your authentication experience with the overall brand theme.
+✅ **Result:** Your Universal Login will now use Cruise0’s colors, logo, and background imagery, aligning your authentication experience with the overall brand theme.
 
 > **Note:** This setup just scratches the surface of what’s possible with Auth0’s branding and UX customization.  
 > Explore advanced options such as custom CSS, templates, and branding APIs here:  
 > [https://auth0.com/docs/customize](https://auth0.com/docs/customize)
+
+
+### 4. Verify the SPA → Auth0 Integration
+
+Once branding and configuration are complete, validate that your Single Page Application (SPA) is communicating properly with Auth0.  
+At this stage, **Actions have not yet been applied**, so you won’t see post-login enrichment or disposable email validation — this step simply confirms the core integration.
+
+---
+
+#### a. Launch the Application
+
+Start the development server (if not already running), then open your app in the browser (for example, `https://localhost:5173` or your configured host).
+
+---
+
+#### b. Test Both Authentication Flows
+
+1. Social Sign-In (Google)
+   - Navigate to `https://YOUR_HOST/logout` to ensure a clean session.
+   - From the landing page, select *Sign In to Board*.
+   - In Universal Login, choose *Continue with Google*.
+   - Verify redirect to the authenticated *Sundeck* page.
+   - From Sundeck, select *Dive into the Engine Room* to confirm gated routing.
+   - Logout to end and clear the session.
+
+2. Database Sign-Up (Email/Password)
+   - Navigate to `https://YOUR_HOST/logout` to ensure a clean session.
+   - From the landing page, select *Sign In to Board*.
+   - In Universal Login, choose *Sign Up* and register with email/password (database connection).
+   - Verify redirect to the authenticated *Sundeck* page.
+   - From Sundeck, select *Dive into the Engine Room* to confirm gated routing.
+   - Logout to end and clear the session.
+   
+---
+
+#### c. Verify Users in Auth0 Dashboard
+
+Visit [Auth0 → User Management → Users](https://manage.auth0.com/dashboard/#/users).  
+You should now see both user records:
+
+- One for the *Google social connection* 
+- One for the *Database connection*
+
+Confirm expected profile attributes such as name, email, and connection type.
+
+---
+
+✅ **Result:** Your SPA is now verified to communicate successfully with Auth0, supporting both database and social login flows.  
+You’re ready to proceed with implementing **Actions** and intermediate and advanced identity capabilities.
 
 ---
 
