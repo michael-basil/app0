@@ -40,3 +40,11 @@ cp .env.example .env.local
 
 npm install
 npm run dev
+```
+
+---
+
+## Deploying flow implementations in Auth0
+
+Once the app is up and running, the next step is connecting the front-end experience to its matching configurations inside Auth0.
+Each flow card in the Engine Room includes high-level Implementation Notes that outline what needs to be applied in your Auth0 tenant.
