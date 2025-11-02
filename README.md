@@ -54,7 +54,7 @@ Application Settings:
 | Authentication Methods | Database, Google |
 | Application Type | Single Page Application |
 
-From the [Applications Dashboard](https://manage.auth0.com/dashboard/#/applications), open *Settings* and note:
+From the [Applications Dashboard](https://manage.auth0.com/dashboard/#/applications), open the *Cruise0* application, navigate to *Settings* and note:
 
 - OAuth Domain 
 - OAuth Client ID
@@ -85,9 +85,6 @@ npm run dev
 ```
 
 ---
-
-
-
 
 ### 3. Apply Cruise0 Branding
 
@@ -137,6 +134,10 @@ Click *Save and Publish* again.
 ---
 
 **Result:** Your Universal Login will now use Cruise0’s colors, logo, and background imagery, aligning your authentication experience with the overall brand theme.
+
+> **Note:** This setup just scratches the surface of what’s possible with Auth0’s branding and UX customization.  
+> Explore advanced options such as custom CSS, templates, and branding APIs here:  
+> [https://auth0.com/docs/customize](https://auth0.com/docs/customize)
 
 ---
 
