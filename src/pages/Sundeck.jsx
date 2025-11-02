@@ -33,7 +33,7 @@ export default function Sundeck() {
           Welcome aboard, <span style={{ textDecoration: "underline" }}>{displayName}</span>!
         </h2>
         <p style={{ marginTop: 0 }}>
-          You’ve cleared boarding — here’s your identification back!
+          Here’s your identification back!
         </p>
         <div className="card" style={{ display: "flex", gap: 16, alignItems: "center" }}>
           {user?.picture && (
