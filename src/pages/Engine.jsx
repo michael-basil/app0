@@ -26,7 +26,7 @@ export default function Engine() {
       </header>
 
       <p className="lede">
-        Hello <b>{displayName}</b>. Ready to go down one more level to learn what powers the Cruise0 experience?
+        Hello <b>{displayName}</b>. Ready to dive deeper one more level to learn what powers the Cruise0 experience?
       </p>
 
       <div className="grid">
