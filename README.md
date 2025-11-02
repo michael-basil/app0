@@ -185,6 +185,18 @@ Confirm expected profile attributes such as name, email, and connection type.
 
 ---
 
+### 5. Configure and Tune Advanced Flows
+
+To extend your setup beyond basic integration, visit the *Engine Room* in the SPA.
+
+From there, explore the flow cards for the areas you’re interested in.
+
+Each flow details the experience, requirements, core implementation details and relevant reference links.
+
+Apply and tune these directly in your tenant as desired.
+
+---
+
 ✅ **Result:** Your SPA is now verified to communicate successfully with Auth0, supporting both database and social login flows.  
 You’re ready to proceed with implementing **Actions** and intermediate and advanced identity capabilities.
 
