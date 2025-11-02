@@ -11,8 +11,8 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
 
   const idx = flowOrder.indexOf(slug);
   const hasSlug = idx !== -1;
-  const prev = hasSlug && idx > 0 ? `/flow/${flowOrder[idx - 1]}` : '/center';
-  const next = hasSlug && idx < flowOrder.length - 1 ? `/flow/${flowOrder[idx + 1]}` : '/center';
+  const prev = hasSlug && idx > 0 ? `/flow/${flowOrder[idx - 1]}` : '/engine';
+  const next = hasSlug && idx < flowOrder.length - 1 ? `/flow/${flowOrder[idx + 1]}` : '/engine';
   const title = (flows.find(f => f.slug === slug)?.title) || slug;
 
   if (!hasSlug) console.error(`[FlowPage] Unknown slug "${slug}"`);
@@ -22,7 +22,7 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
     const onKey = (e) => {
       if (e.key === 'ArrowLeft')  navigate(prev);
       if (e.key === 'ArrowRight') navigate(next);
-      if (e.key === 'c' || e.key === 'C') navigate('/center'); // Back to Engine Room
+      if (e.key === 'c' || e.key === 'C') navigate('/engine'); // Back to Engine Room
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -52,16 +52,13 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
 
         {showControls && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            {/* Prev / Next controls */}
             <div className="btn-group" role="group" aria-label="Flow navigation">
               <button className="btn btn-sm" onClick={() => navigate(prev)}>← Prev</button>
               <button className="btn btn-sm" onClick={() => navigate(next)}>Next →</button>
             </div>
-
-            {/* Back to Engine Room (Center) */}
             <button
               className="btn btn-sm"
-              onClick={() => navigate('/center')}
+              onClick={() => navigate('/engine')}
               title="Back to Engine Room (C)"
             >
               ↑ Back to Engine Room

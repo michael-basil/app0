@@ -13,7 +13,7 @@ export default function Landing() {
           width="72"
           height="72"
         />
-        <h1 className="hero-title">Cruise0 Modernization: Unlocking Trust Through Identity</h1>
+        <h1 className="hero-title">Cruise0 Modernization: From Idea Through Transformation</h1>
         <p className="lede">
           Step aboard the Cruise0 proof of concept — a guided tour of modern identity in motion.
         </p>

@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { flows } from "./flows/index.js";
 
-export default function Center() {
+export default function Engine() {
   const { user } = useAuth0();
   const displayName =
     (user && (user.name || user.email)) ? (user.name || user.email) : "traveler";

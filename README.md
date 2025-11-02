@@ -1,4 +1,4 @@
-# Cruise0 Modernization: Unlocking Trust Through Identity
+# Cruise0 Modernization: From Idea Through Transformation
 
 A proof-of-concept showing how Auth0 powers Cruise0’s modernization:
 - **Seamless Social Sign-Up** (Google)

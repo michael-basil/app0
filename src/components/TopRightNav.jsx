@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
 export default function TopRightNav({
-  prevHref = "/center",
-  nextHref = "/center",
+  prevHref = "/engine",
+  nextHref = "/engine",
   showCenter = true,
   centerHref = "/sundeck",
 }) {

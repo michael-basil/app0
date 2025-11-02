@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
  * Examples:
  *   /logout
  *   /logout?to=/            -> go to Landing
- *   /logout?to=/center      -> (useful if you want to show “must be logged in”)
+ *   /logout?to=/engine      -> (useful if you want to show “must be logged in”)
  */
 export default function Logout() {
   const { logout, isAuthenticated } = useAuth0();

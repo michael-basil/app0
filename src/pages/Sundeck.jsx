@@ -49,7 +49,7 @@ export default function Sundeck() {
             <div style={{ fontWeight: 600, fontSize: 18 }}>{displayName}</div>
             <div style={{ opacity: 0.8 }}>{primaryEmail}</div>
             <div style={{ marginTop: 12 }}>
-              <Link className="btn" to="/center">↓ Go down to the Engine Room</Link>
+              <Link className="btn" to="/engine">↓ Go down to the Engine Room</Link>
             </div>
           </div>
         </div>
