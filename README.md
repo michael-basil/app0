@@ -50,7 +50,7 @@ Application Settings:
 
 | Setting | Value |
 |----------|--------|
-| Application Name | Cruise0 |
+| Application Name | Cruise0 SPA |
 | Authentication Methods | Database, Google |
 | Application Type | Single Page Application |
 
