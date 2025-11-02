@@ -61,6 +61,8 @@ export default function FlowSocial(props) {
             label: "Post-Login Action (Render Terms Prompt)",
             content: `exports.onExecutePostLogin = async (event, api) => {
   if (event.user.app_metadata.privacy_policies !== true) {
+    // BUILD FORM INSTRUCTIONS:
+    //   https://support.auth0.com/center/s/article/Add-Terms-and-Conditions-to-the-Signup-Screen
     api.prompt.render('FORM_ID_FROM_ASSOCIATED_APP');
   }
 }
