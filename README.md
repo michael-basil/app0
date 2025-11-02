@@ -150,6 +150,7 @@ Click *Save and Publish* again.
 ### 4. Verify the SPA → Auth0 Integration
 
 Once branding and configuration are complete, validate that your Single Page Application (SPA) is communicating properly with Auth0.  
+
 At this stage, **Actions have not yet been applied**, so you won’t see post-login enrichment or disposable email validation — this step simply confirms the core integration.
 
 ---
