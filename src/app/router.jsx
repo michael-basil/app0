@@ -3,6 +3,7 @@ import Auth0ProviderWithNavigate from "../auth/Auth0ProviderWithNavigate.jsx";
 import AuthError from "../pages/AuthError.jsx";
 import Landing from "../pages/Landing.jsx";
 import Center from "../pages/Center.jsx";
+import Sundeck from "../pages/Sundeck.jsx";
 import Logout from "../pages/Logout.jsx";
 import RequireAuth from "../components/RequireAuth.jsx";
 import FlowLocal from "../pages/flows/local/index.jsx";
@@ -17,6 +18,7 @@ export default function AppRouter() {
           <Route path="/" element={<Landing />} />
           <Route path="/auth-error" element={<AuthError />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/sundeck" element={<RequireAuth component={Sundeck} />} />
           <Route path="/center" element={<RequireAuth component={Center} />} />
           <Route path="/flow/disposable" element={<RequireAuth component={FlowDisposable} />} />
           <Route path="/flow/local" element={<RequireAuth component={FlowLocal} />} />

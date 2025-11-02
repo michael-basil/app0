@@ -26,8 +26,8 @@ export default function Landing() {
           </p>
         ) : (
           <p className="actions">
-            <a className="btn btn-lg" href="/center">
-              Enter the Engine Room
+            <a className="btn btn-lg" href="/sundeck">
+              Go to the Sundeck
             </a>
           </p>
         )}

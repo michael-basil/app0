@@ -8,7 +8,7 @@ export default function Auth0ProviderWithNavigate({ children }) {
   const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
   const onRedirectCallback = (appState) => {
-    const target = appState?.returnTo || "/center";
+    const target = appState?.returnTo || "/sundeck";
     navigate(target, { replace: true });
   };
 
@@ -26,7 +26,7 @@ export default function Auth0ProviderWithNavigate({ children }) {
       domain={domain}
       clientId={clientId}
       authorizationParams={{
-        redirect_uri: window.location.origin + "/center",
+        redirect_uri: window.location.origin + "/sundeck",
       }}
       onRedirectCallback={onRedirectCallback}
     >

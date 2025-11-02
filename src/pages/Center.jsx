@@ -9,13 +9,24 @@ export default function Center() {
 
   return (
     <main className="page">
-      <header className="page-header">
-        <h1 className="page-title">Below Deck: The Engine Room</h1>
-        <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
+      <header
+        className="page-header"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12
+        }}
+      >
+        <h1 className="page-title" style={{ margin: 0 }}>Below Deck: The Engine Room</h1>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <Link className="btn btn-sm" to="/sundeck">↑ Return to Sundeck</Link>
+          <Link className="btn btn-sm" to="/logout">Exit (Logout) →</Link>
+        </div>
       </header>
 
       <p className="lede">
-        Welcome aboard, <b>{displayName}</b>. Ready to explore what powers the Cruise0 experience?
+        Hello <b>{displayName}</b>. Ready to go down one more level to learn what powers the Cruise0 experience?
       </p>
 
       <div className="grid">

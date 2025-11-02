@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { flows, flowOrder } from '../pages/flows/index.js';
-import TopRightNav from './TopRightNav.jsx';
 import Collapsible from './Collapsible.jsx';
 import CodeBlock from './CodeBlock.jsx';
 
@@ -23,7 +22,7 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
     const onKey = (e) => {
       if (e.key === 'ArrowLeft')  navigate(prev);
       if (e.key === 'ArrowRight') navigate(next);
-      if (e.key === 'c' || e.key === 'C') navigate('/center');
+      if (e.key === 'c' || e.key === 'C') navigate('/center'); // Back to Engine Room
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -40,9 +39,35 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
 
   return (
     <article className="page">
-      <header className="page-header">
-        <h1 className="page-title">{title}</h1>
-        {showControls && <TopRightNav prevHref={prev} nextHref={next} showCenter />}
+      <header
+        className="page-header"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: 12
+        }}
+      >
+        <h1 className="page-title" style={{ margin: 0 }}>{title}</h1>
+
+        {showControls && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {/* Prev / Next controls */}
+            <div className="btn-group" role="group" aria-label="Flow navigation">
+              <button className="btn btn-sm" onClick={() => navigate(prev)}>← Prev</button>
+              <button className="btn btn-sm" onClick={() => navigate(next)}>Next →</button>
+            </div>
+
+            {/* Back to Engine Room (Center) */}
+            <button
+              className="btn btn-sm"
+              onClick={() => navigate('/center')}
+              title="Back to Engine Room (C)"
+            >
+              ↑ Back to Engine Room
+            </button>
+          </div>
+        )}
       </header>
 
       {experienceArr.length > 0 && (
@@ -77,11 +102,15 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
         <section>
           <h2>References</h2>
           <Collapsible defaultOpen={expandMenus}>
-          <ul>{linksArr.map((l,i)=>(
-            <li key={i}>
-              {typeof l === 'string' ? l : <a href={l.href} target="_blank" rel="noreferrer">{l.text}</a>}
-            </li>
-          ))}</ul>
+            <ul>
+              {linksArr.map((l,i)=>(
+                <li key={i}>
+                  {typeof l === 'string'
+                    ? l
+                    : <a href={l.href} target="_blank" rel="noreferrer">{l.text}</a>}
+                </li>
+              ))}
+            </ul>
           </Collapsible>
         </section>
       )}
