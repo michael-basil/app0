@@ -31,7 +31,7 @@ By simplifying identity plumbing, teams regain focus on customer value, brand tr
 
 ## Tech Stack & Features
 
-- React (Vite) + Auth0 SPA SDK  
+- React (Vite) + Auth0 SPA SDK *(See [Auth0 React SPA Quickstart](https://auth0.com/docs/quickstart/spa/react))*
 - Actions: Post-login enrichment (country from IP) + Terms consent  
 - Conditional MFA for database users (social logins bypass MFA)  
 - Disposable Email Validation (Action + custom validator)

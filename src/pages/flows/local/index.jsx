@@ -22,19 +22,6 @@ export default function FlowLocal(props) {
         ],
         code: [
           {
-            label: "React SPA Wiring (Provider · Login · Routing)",
-            content: `
-// Provider (uses @auth0/auth0-react)
-import { Auth0Provider } from '@auth0/auth0-react';
-...
-// Trigger login (Google vs. DB)
-import { useAuth0 } from '@auth0/auth0-react';
-const { loginWithRedirect } = useAuth0();
-...
-// Routing after login
-import { Routes, Route, Navigate } from 'react-router-dom';`
-          },
-          {
             label: "Post-Login Action (Block Unverified Emails)",
             content: `exports.onExecutePostLogin = async (event, api) => {
   const verified = event.user?.email_verified === true;
@@ -102,7 +89,6 @@ exports.onContinuePostLogin = async function (event, api) {
           { text: "Dashboard — Flows",                                  href: "https://forms.auth0.com/#/flows" },
           { text: "Dashboard — Vault",                                  href: "https://forms.auth0.com/#/vault" },
           { text: "Dashboard — Monitoring — Logs",                      href: "https://manage.auth0.com/#/logs" },
-          { text: "React SPA Quickstart",                               href: "https://auth0.com/docs/quickstart/spa/react" },
           { text: "Customize Universal Login Pages",                    href: "https://auth0.com/docs/customize/universal-login-pages" },
           { text: "Actions — Login Flow (Post-Login)",                  href: "https://auth0.com/docs/customize/actions/flows-and-triggers/login-flow" },
           { text: "Make an API Call Using Actions",                     href: "https://support.auth0.com/center/s/article/How-to-Make-an-Axios-API-Call-and-Store-it-as-a-Custom-Claim-using-Actions" },
