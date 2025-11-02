@@ -22,7 +22,6 @@ export default function FlowPage({ slug, sections, expandMenus = false, showCont
     const onKey = (e) => {
       if (e.key === 'ArrowLeft')  navigate(prev);
       if (e.key === 'ArrowRight') navigate(next);
-      if (e.key === 'c' || e.key === 'C') navigate('/engine'); // Back to Engine Room
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
