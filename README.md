@@ -192,6 +192,7 @@ You should now see both user records:
 Confirm expected profile attributes such as name, email, and connection type.
 
 ✅ **Result:** Your SPA is now verified to communicate successfully with Auth0, supporting both database and social login flows.  
+
 You’re ready to proceed with implementing **Actions** and intermediate and advanced identity capabilities.
 
 ---
