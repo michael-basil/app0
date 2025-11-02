@@ -70,6 +70,13 @@ Then update the following:
 
 Save changes.
 
+#### Enable MFA
+
+Before continuing, enable at least one multi-factor authentication method (such as *One-time Password (OTP)*) for your tenant. This ensures your database connection flow can prompt for MFA when configured later.
+
+Visit: [Auth0 → Security → Multi-factor Auth](https://manage.auth0.com/dashboard/#/security/mfa)
+
+
 ---
 
 ### 2. Bootstrap and Launch the SPA
