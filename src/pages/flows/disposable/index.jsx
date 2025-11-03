@@ -30,7 +30,7 @@ export default function FlowDisposable(props) {
   }
 
   // Remote check (Disify)
-  const url = \`https://www.disify.com/api/email/\${encodeURIComponent(email)}\`;
+  const url = \`https://www.disify.com/api/email/\${email}\`;
   try {
     const res = await fetch(url, { method: "GET", timeout: 3000 });
     if (!res.ok) return; // fail-open
